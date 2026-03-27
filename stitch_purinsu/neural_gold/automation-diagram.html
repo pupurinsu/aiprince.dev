@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FB Chat Agent Workflow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0e0e11;
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      overflow: auto;
+      min-width: unset;
+      width: 100%;
+    }
+
+    .diagram-card {
+      background: #131316;
+      border-radius: 20px;
+      border: 1px solid rgba(80,69,55,0.2);
+      padding: 40px;
+      width: 100%;
+      overflow-x: auto;
+      background-image: radial-gradient(circle at 2px 2px, rgba(80,69,55,0.15) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    .diagram-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #9c8f7e;
+      margin-bottom: 28px;
+    }
+
+    .diagram-stage {
+      position: relative;
+      width: 1200px;
+      min-height: 650px;
+      margin: 0 auto;
+    }
+
+    .diagram-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    @keyframes flowPulse {
+      from { stroke-dashoffset: 0; }
+      to   { stroke-dashoffset: -40; }
+    }
+
+    .flow-path {
+      stroke: #f9c068;
+      stroke-width: 1.5;
+      fill: none;
+      opacity: 0.6;
+      stroke-dasharray: 6 4;
+      animation: flowPulse 2s linear infinite;
+      filter: drop-shadow(0 0 4px rgba(249,192,104,0.6));
+    }
+
+    .branch-label {
+      font-size: 10px;
+      fill: #9c8f7e;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Node cards */
+    .node {
+      position: absolute;
+      min-width: 120px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #1f1f22;
+      border: 1px solid rgba(249,192,104,0.15);
+      box-shadow: 0 0 20px rgba(249,192,104,0.06), 0 4px 24px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: default;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .node:hover {
+      border-color: rgba(249,192,104,0.4);
+      box-shadow: 0 0 30px rgba(249,192,104,0.15), 0 4px 32px rgba(0,0,0,0.5);
+      transform: translateY(-2px);
+    }
+
+    .node-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #2a2a2d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .node-icon.if-icon {
+      background: #1a2e1a;
+    }
+
+    .node-icon.groq-icon {
+      background: #e85d24;
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .node-label {
+      font-weight: 600;
+      font-size: 12px;
+      color: #e4e1e6;
+      margin-top: 8px;
+      line-height: 1.35;
+      max-width: 110px;
+    }
+
+    .node-sub {
+      font-size: 10px;
+      color: #9c8f7e;
+      margin-top: 4px;
+      line-height: 1.4;
+      max-width: 110px;
+    }
+
+    /* Connector sub-labels below AI Agent */
+    .ai-sub-labels {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      width: 100%;
+    }
+
+    .ai-sub-item {
+      font-size: 9px;
+      color: #9c8f7e;
+      background: rgba(249,192,104,0.05);
+      border: 1px solid rgba(249,192,104,0.1);
+      border-radius: 4px;
+      padding: 2px 6px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-card">
+    <div class="diagram-label">FB Chat Agent Workflow</div>
+
+    <div class="diagram-stage" id="stage">
+
+      <!-- SVG connector layer (underneath nodes) -->
+      <svg class="diagram-svg" id="connectors">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#f9c068" opacity="0.8" />
+          </marker>
+        </defs>
+
+        <!-- Receive → If (top branch) -->
+        <path class="flow-path" d="M 255,295 C 290,295 290,245 310,245" marker-end="url(#arrow)" />
+        <!-- Receive → If1 (bottom branch) -->
+        <path class="flow-path" d="M 255,305 C 290,305 290,385 310,385" marker-end="url(#arrow)" />
+
+        <!-- If → Access to Messenger API (true) -->
+        <path class="flow-path" d="M 430,245 L 510,245" marker-end="url(#arrow)" />
+        <text class="branch-label" x="450" y="238">true</text>
+
+        <!-- If1 → Knowledge Base (false / bottom) -->
+        <path class="flow-path" d="M 430,385 L 470,385" marker-end="url(#arrow)" />
+        <text class="branch-label" x="435" y="378">true</text>
+
+        <!-- Knowledge Base → AI Agent -->
+        <path class="flow-path" d="M 600,385 L 630,380" marker-end="url(#arrow)" />
+
+        <!-- AI Agent → Reply to Customer -->
+        <path class="flow-path" d="M 760,370 L 790,370" marker-end="url(#arrow)" />
+
+        <!-- AI Agent → Groq Chat Model (below) -->
+        <path class="flow-path" d="M 690,420 L 690,460 L 660,460" marker-end="url(#arrow)" />
+
+        <!-- AI Agent → Simple Memory (below) -->
+        <path class="flow-path" d="M 710,420 L 710,450 L 780,460" marker-end="url(#arrow)" />
+      </svg>
+
+      <!-- Node: Receive Message from Customer -->
+      <div class="node" style="left: 100px; top: 260px; min-width: 140px;">
+        <div class="node-icon">🔗</div>
+        <div class="node-label">Receive Message from Customer</div>
+        <div class="node-sub">GET &nbsp;·&nbsp; POST</div>
+      </div>
+
+      <!-- Node: If (top) -->
+      <div class="node" style="left: 310px; top: 210px; min-width: 80px;">
+        <div class="node-icon if-icon">⚡</div>
+        <div class="node-label">If</div>
+      </div>
+
+      <!-- Node: Access to Messenger API -->
+      <div class="node" style="left: 510px; top: 210px; min-width: 140px;">
+        <div class="node-icon">🔗</div>
+        <div class="node-label">Access to Messenger API</div>
+      </div>
+
+      <!-- Node: If1 (bottom) -->
+      <div class="node" style="left: 310px; top: 350px; min-width: 80px;">
+        <div class="node-icon if-icon">⚡</div>
+        <div class="node-label">If1</div>
+      </div>
+
+      <!-- Node: Knowledge Base of Business -->
+      <div class="node" style="left: 470px; top: 348px; min-width: 130px;">
+        <div class="node-icon">📄</div>
+        <div class="node-label">Knowledge Base of Business</div>
+        <div class="node-sub">get: document</div>
+      </div>
+
+      <!-- Node: AI Agent -->
+      <div class="node" style="left: 630px; top: 328px; min-width: 130px;">
+        <div class="node-icon">🤖</div>
+        <div class="node-label">AI Agent</div>
+        <div class="ai-sub-labels">
+          <div class="ai-sub-item">Chat Model* / Model</div>
+          <div class="ai-sub-item">Memory / Memory</div>
+          <div class="ai-sub-item">Tool</div>
+        </div>
+      </div>
+
+      <!-- Node: Reply to Customer Inquiries -->
+      <div class="node" style="left: 790px; top: 338px; min-width: 140px;">
+        <div class="node-icon">🌐</div>
+        <div class="node-label">Reply to Customer Inquiries</div>
+        <div class="node-sub">POST: https://graph.faceboo…</div>
+      </div>
+
+      <!-- Node: Groq Chat Model -->
+      <div class="node" style="left: 550px; top: 520px; min-width: 120px;">
+        <div class="node-icon groq-icon">G</div>
+        <div class="node-label">Groq Chat Model</div>
+      </div>
+
+      <!-- Node: Simple Memory -->
+      <div class="node" style="left: 740px; top: 520px; min-width: 120px;">
+        <div class="node-icon">🗄️</div>
+        <div class="node-label">Simple Memory</div>
+      </div>
+
+    </div><!-- /diagram-stage -->
+  </div><!-- /diagram-card -->
+</body>
+</html>
