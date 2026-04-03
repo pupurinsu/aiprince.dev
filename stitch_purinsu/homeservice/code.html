@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>aiprince.dev | AI Automation for Home Services</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#090e1c",
+                        "on-primary-fixed-variant": "#3d4d00",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#2f3445",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "secondary-container": "#00a6e0",
+                        "on-tertiary-fixed": "#281800",
+                        "on-surface": "#dee1f7",
+                        "outline": "#8f937b",
+                        "surface-container": "#1a1f2f",
+                        "background": "#0e1322",
+                        "on-tertiary": "#442c00",
+                        "primary-fixed-dim": "#aed50d",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "on-background": "#dee1f7",
+                        "tertiary-container": "#ffdcac",
+                        "surface": "#0e1322",
+                        "on-error": "#690005",
+                        "inverse-surface": "#dee1f7",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#c4e7ff",
+                        "primary": "#ffffef",
+                        "outline-variant": "#444934",
+                        "on-secondary-container": "#00374d",
+                        "tertiary": "#fffdff",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "on-secondary-fixed": "#001e2c",
+                        "surface-dim": "#0e1322",
+                        "on-primary-fixed": "#171e00",
+                        "tertiary-fixed": "#ffddb0",
+                        "tertiary-fixed-dim": "#f5bd65",
+                        "primary-container": "#c8f135",
+                        "surface-container-high": "#25293a",
+                        "primary-fixed": "#c9f236",
+                        "on-secondary": "#00354a",
+                        "surface-container-highest": "#2f3445",
+                        "surface-container-low": "#161b2b",
+                        "inverse-primary": "#526600",
+                        "on-primary": "#293500",
+                        "surface-tint": "#aed50d",
+                        "error-container": "#93000a",
+                        "surface-bright": "#343949",
+                        "secondary": "#7bd0ff",
+                        "on-primary-container": "#566c00",
+                        "on-surface-variant": "#c5c9ae",
+                        "on-tertiary-container": "#865b07",
+                        "inverse-on-surface": "#2b3040"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neural-pulse {
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(14, 19, 34, 0) 70%);
+        }
+        .metallic-cta {
+            background: linear-gradient(135deg, #ffffef 0%, #c8f135 100%);
+        }
+        .ghost-border {
+            border: 1px solid rgba(68, 73, 52, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl shadow-2xl shadow-black/40">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#c8f135]" data-icon="bolt">bolt</span>
+<span class="text-xl font-bold text-[#ffffef] font-headline tracking-tight">aiprince.dev</span>
+</div>
+<a class="hidden md:flex text-[#c8f135] font-bold font-headline transition-colors duration-300 hover:text-[#ffffef] active:scale-95 duration-200" href="#">Book My Free Call</a>
+</div>
+</header>
+<!-- Neural Pulse Background -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] neural-pulse rounded-full opacity-50 blur-3xl"></div>
+<div class="absolute -bottom-1/4 -left-1/4 w-[800px] h-[800px] neural-pulse rounded-full opacity-30 blur-3xl"></div>
+</div>
+<main class="relative z-10 pt-24 pb-20">
+<!-- Hero Section -->
+<section class="px-6 py-12 md:py-24 max-w-7xl mx-auto overflow-hidden">
+<div class="flex flex-col items-start gap-8 md:grid md:grid-cols-2 md:items-center">
+<div class="flex flex-col gap-6">
+<div class="inline-flex items-center px-3 py-1 bg-surface-container-high rounded-full ghost-border">
+<span class="text-secondary font-label text-[10px] uppercase tracking-widest font-bold">Now Scaling US Home Services</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-headline font-bold text-primary tracking-tighter leading-[0.95]">
+                        Stop Losing Leads To <span class="text-primary-container">Slow Response.</span>
+</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">
+                        We build AI systems that answer your calls, book your appointments, and follow up with leads 24/7. Focus on the job, we'll handle the rest.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="metallic-cta text-on-primary font-bold px-8 py-4 rounded-md shadow-lg shadow-primary-container/20 active:scale-95 transition-transform duration-200">
+                            Book Your Free Strategy Call
+                        </button>
+<button class="bg-surface-container-high text-on-surface font-semibold px-8 py-4 rounded-md ghost-border hover:bg-surface-container-highest transition-colors active:scale-95">
+                            See How It Works
+                        </button>
+</div>
+</div>
+<div class="relative w-full aspect-square mt-12 md:mt-0 flex items-center justify-center">
+<div class="absolute inset-0 bg-primary-container/10 blur-[100px] rounded-full"></div>
+<div class="relative w-full max-w-sm bg-surface-container-high/80 backdrop-blur-md rounded-xl p-6 ghost-border shadow-2xl">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<p class="text-xs font-label text-secondary uppercase font-extrabold tracking-widest">AI Receptionist</p>
+<p class="text-sm font-bold text-primary">Active Now</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-variant/40 rounded-lg p-3 max-w-[80%]">
+<p class="text-xs text-on-surface">"Hey, do you have any openings for a plumbing leak today?"</p>
+</div>
+<div class="bg-primary-container/10 rounded-lg p-3 max-w-[80%] ml-auto">
+<p class="text-xs text-primary-container font-medium">"Yes! Our plumber is available at 2 PM. Would you like to book that slot?"</p>
+</div>
+<div class="bg-surface-variant/40 rounded-lg p-3 max-w-[80%]">
+<p class="text-xs text-on-surface">"Yes please, thank you!"</p>
+</div>
+<div class="bg-primary-container/20 rounded-lg p-3 border border-primary-container/30">
+<p class="text-xs text-primary font-bold">Booking Confirmed! ✅</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pain Points -->
+<section class="px-6 py-20 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-headline font-bold text-primary mb-4 tracking-tight">Sound Familiar?</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Running a business is hard. Losing money because you're busy working is worse.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+<div class="p-8 bg-background rounded-xl ghost-border hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="phone_missed">phone_missed</span>
+<h3 class="text-xl font-bold text-primary mb-3">Missed Calls &amp; DMs</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Every missed call is a $500 job going to your competitor down the street.</p>
+</div>
+<div class="p-8 bg-background rounded-xl ghost-border hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="broken_image">broken_image</span>
+<h3 class="text-xl font-bold text-primary mb-3">Outdated Presence</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">No website or an old one makes you look unprofessional in a modern market.</p>
+</div>
+<div class="p-8 bg-background rounded-xl ghost-border hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="star_outline">star_outline</span>
+<h3 class="text-xl font-bold text-primary mb-3">Missing Reviews</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">You do great work, but nobody knows because your review count is stuck in 2019.</p>
+</div>
+</div>
+</section>
+<!-- Solution Grid (Bento) -->
+<section class="px-6 py-20 bg-background">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-headline font-bold text-primary mb-4 tracking-tight">Here's What We Build</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Surgical precision systems designed to maximize your revenue per lead.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 max-w-7xl mx-auto">
+<!-- 2x2 service cards represented in bento -->
+<div class="md:col-span-2 md:row-span-1 bg-surface-container-high p-8 rounded-xl ghost-border relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full -translate-y-12 translate-x-12 blur-2xl"></div>
+<span class="material-symbols-outlined text-primary-container mb-4 text-3xl" data-icon="web">web</span>
+<h3 class="text-2xl font-bold text-primary mb-2">Professional Website</h3>
+<p class="text-on-surface-variant text-sm">High-converting, lightning-fast sites built specifically for service businesses.</p>
+</div>
+<div class="md:col-span-2 md:row-span-1 bg-surface-container-high p-8 rounded-xl ghost-border relative overflow-hidden group">
+<span class="material-symbols-outlined text-primary-container mb-4 text-3xl" data-icon="support_agent">support_agent</span>
+<h3 class="text-2xl font-bold text-primary mb-2">AI Receptionist (24/7)</h3>
+<p class="text-on-surface-variant text-sm">An AI that text-replies to missed calls instantly, answering questions and booking jobs.</p>
+</div>
+<div class="md:col-span-2 md:row-span-1 bg-surface-container-high p-8 rounded-xl ghost-border relative overflow-hidden group">
+<span class="material-symbols-outlined text-primary-container mb-4 text-3xl" data-icon="event_available">event_available</span>
+<h3 class="text-2xl font-bold text-primary mb-2">Automated Booking</h3>
+<p class="text-on-surface-variant text-sm">Seamless calendar integration. No more back-and-forth "are you free?" texts.</p>
+</div>
+<div class="md:col-span-2 md:row-span-1 bg-surface-container-high p-8 rounded-xl ghost-border relative overflow-hidden group">
+<span class="material-symbols-outlined text-primary-container mb-4 text-3xl" data-icon="reviews">reviews</span>
+<h3 class="text-2xl font-bold text-primary mb-2">Auto Review Requests</h3>
+<p class="text-on-surface-variant text-sm">Systematically text customers after the job is done to boost your Google ranking.</p>
+</div>
+</div>
+</section>
+<!-- How It Works (Step Flow) -->
+<section class="px-6 py-20 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
+<div class="md:w-1/3">
+<h2 class="text-4xl font-headline font-bold text-primary mb-6">Built in 14 Days. <br/><span class="text-secondary">Runs Forever.</span></h2>
+<p class="text-on-surface-variant">We don't do "long term projects." We deploy fast-acting assets that start working immediately.</p>
+</div>
+<div class="md:w-2/3 space-y-12 relative">
+<div class="absolute left-6 top-4 bottom-4 w-px bg-outline-variant/30 hidden md:block"></div>
+<div class="flex items-start gap-8 relative">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold flex-shrink-0 z-10">1</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-2">The Audit</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">We hop on a 30-min call to map out your current lead flow and identify where the "leaks" are.</p>
+</div>
+</div>
+<div class="flex items-start gap-8 relative">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold flex-shrink-0 z-10">2</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-2">Rapid Buildout</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Our team builds your website, AI voice/text agents, and CRM within a strict 2-week window.</p>
+</div>
+</div>
+<div class="flex items-start gap-8 relative">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold flex-shrink-0 z-10">3</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-2">Autopilot Launch</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Switch it on. Your AI starts answering leads and booking jobs while you're out in the field.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Trust Us -->
+<section class="px-6 py-20 bg-background">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container p-6 rounded-lg ghost-border flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="api">api</span>
+<h4 class="font-bold text-primary text-sm">GHL Experts</h4>
+<p class="text-[10px] text-on-surface-variant font-label uppercase tracking-tighter">Enterprise Power</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg ghost-border flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="construction">construction</span>
+<h4 class="font-bold text-primary text-sm">100% DFY</h4>
+<p class="text-[10px] text-on-surface-variant font-label uppercase tracking-tighter">Done-For-You</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg ghost-border flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="memory">memory</span>
+<h4 class="font-bold text-primary text-sm">Latest AI Tools</h4>
+<p class="text-[10px] text-on-surface-variant font-label uppercase tracking-tighter">Cutting Edge</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg ghost-border flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="videocam">videocam</span>
+<h4 class="font-bold text-primary text-sm">Free Strategy</h4>
+<p class="text-[10px] text-on-surface-variant font-label uppercase tracking-tighter">Zero Risk Call</p>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<h2 class="text-3xl font-headline font-bold text-primary mb-6">Why trust 'aiprince.dev'?</h2>
+<p class="text-on-surface-variant mb-4">We aren't just another agency. We are architects. We specialize in the boring, technical plumbing of your business so you can focus on the physical plumbing of your customers.</p>
+<p class="text-on-surface-variant">We use the exact same systems we install for ourselves. If it doesn't print money, we don't build it.</p>
+</div>
+</div>
+</section>
+<!-- Founder Section -->
+<section class="px-6 py-20 bg-surface-container-low">
+<div class="max-w-3xl mx-auto flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-primary-container mb-8">
+<img alt="Prince Evan" class="w-full h-full object-cover" data-alt="professional portrait of Prince Evan, a young confident business founder with a warm smile, wearing a dark polo shirt against a minimalist urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1-TZMYQqMma1GJqpnS_IyC2I1t2g4Q7uyyat5xPg3gjcEGnfoT_Xb814KKQv3eWxGJtY9ZrfH36s23iyL8R5M5mUAsZSQdlhT9m07PRWGXQOuGxTw-TdkWNpO1lrpi6ehSCkX5dkgunlph6fWAGhUGmNMwVFjVHwDXJNJVorEwH2IU5hsyu_yoyZ1z_Vkm2ea2SjnGEsGGYxped9icgPJV2JNG07FxeqhohXlPh8CT6idOl-n-xvLXPGFdUzWVdP_X5xt1T5B2Q"/>
+</div>
+<h2 class="text-2xl font-headline font-bold text-primary mb-2">Hi, I'm Prince Evan.</h2>
+<p class="text-secondary font-label uppercase tracking-widest text-xs mb-6">Founder &amp; Kinetic Architect</p>
+<p class="text-lg text-on-surface leading-relaxed italic">
+                    "I spent years watching local service pros lose sleep and money because they couldn't keep up with the 'digital side' of things. I build the systems. You focus on the work. It's that simple."
+                </p>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-6 py-24 bg-background relative overflow-hidden">
+<div class="absolute inset-0 neural-pulse opacity-20"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="text-4xl md:text-6xl font-headline font-bold text-primary mb-8 tracking-tighter">Ready to Stop Missing Leads?</h2>
+<p class="text-on-surface-variant text-lg mb-12 max-w-xl mx-auto">Click below to book your free strategy audit. We'll show you exactly how much money is slipping through your fingers.</p>
+<button class="metallic-cta text-on-primary text-xl font-extrabold px-12 py-6 rounded-md shadow-[0_0_40px_rgba(200,241,53,0.3)] hover:scale-105 transition-transform">
+                    Book My Free Call
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-[#0e1322] border-t border-slate-200/10 w-full py-12 px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-lg font-black text-[#ffffef] font-headline tracking-tighter">aiprince.dev</span>
+<p class="text-slate-400 font-label text-[10px] uppercase tracking-widest">The Automated Architect</p>
+</div>
+<nav class="flex gap-8">
+<a class="text-slate-400 font-body text-sm hover:underline decoration-[#c8f135] underline-offset-4 transition-opacity" href="#">Home</a>
+<a class="text-slate-400 font-body text-sm hover:underline decoration-[#c8f135] underline-offset-4 transition-opacity" href="#">How It Works</a>
+<a class="text-slate-400 font-body text-sm hover:underline decoration-[#c8f135] underline-offset-4 transition-opacity" href="#">Book a Call</a>
+</nav>
+<p class="text-slate-400 font-label text-xs">© 2024 aiprince.dev. All rights reserved.</p>
+</div>
+</footer>
+<!-- BottomNavBar Shell (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-slate-950/80 backdrop-blur-lg border-t border-[#ffffef]/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+<div class="flex justify-around items-center h-16 w-full">
+<a class="flex flex-col items-center gap-1 text-slate-400 p-3 hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label text-[8px] uppercase tracking-widest">Schedule</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#c8f135] bg-[#c8f135]/10 rounded-full p-3 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="font-label text-[8px] uppercase tracking-widest">Connect</span>
+</a>
+</div>
+</nav>
+</body></html>

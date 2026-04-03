@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Automation for Local Service Businesses | aiprince.dev</title>
+  <meta name="description" content="We build AI systems that answer your calls, book appointments, and follow up with leads 24/7. Done-for-you automation for home service businesses."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0A0F1E',
+            'bg-secondary': '#111827',
+            'bg-card': '#0F172A',
+            'bg-deep': '#060B14',
+            'accent-lime': '#C8F135',
+            'accent-blue': '#38BDF8',
+            'accent-amber': '#F9C068',
+            'text-primary': '#F8FAFC',
+            'text-secondary': '#94A3B8',
+            'text-muted': '#64748B',
+            'text-dim': '#475569',
+          },
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+            label: ['Manrope', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background-color: #0A0F1E; color: #F8FAFC; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* Dot grid background */
+    .dot-grid {
+      background-image: radial-gradient(circle, rgba(200,241,53,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* Fade-in-up animation for hero */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-anim { opacity: 0; animation: fadeInUp 0.6s ease forwards; }
+    .delay-0  { animation-delay: 0s; }
+    .delay-1  { animation-delay: 0.15s; }
+    .delay-2  { animation-delay: 0.30s; }
+    .delay-3  { animation-delay: 0.45s; }
+    .delay-4  { animation-delay: 0.60s; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Pulse dot */
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(1.5); }
+    }
+    .pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+
+    /* Typing indicator */
+    @keyframes typingBounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40%            { transform: translateY(-6px); opacity: 1; }
+    }
+    .typing-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #94A3B8; animation: typingBounce 1.2s ease-in-out infinite; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Button shimmer */
+    .btn-primary { position: relative; overflow: hidden; }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 0.4s ease;
+    }
+    .btn-primary:hover::after { left: 150%; }
+
+    /* Button pulse */
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(200,241,53,0.4); }
+      50%       { box-shadow: 0 0 0 8px rgba(200,241,53,0); }
+    }
+    .btn-pulse { animation: btnPulse 2.4s ease-in-out infinite; }
+
+    /* Card hover */
+    .service-card { transition: border-color 0.25s ease, transform 0.25s ease; }
+    .service-card:hover { border-color: rgba(200,241,53,0.4) !important; transform: scale(1.02); }
+
+    /* Pain card hover */
+    .pain-card { transition: border-color 0.25s ease, transform 0.25s ease; }
+    .pain-card:hover { border-color: rgba(200,241,53,0.4) !important; transform: scale(1.02); }
+
+    /* FAQ accordion */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+    .faq-answer.open { max-height: 300px; }
+    .faq-arrow { transition: transform 0.3s ease; display: inline-block; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-item.open { border-color: rgba(200,241,53,0.3) !important; }
+
+    /* Nav scroll */
+    #main-nav { transition: background 0.3s ease, border-color 0.3s ease; }
+    #main-nav.scrolled { background: rgba(10,15,30,0.97) !important; border-bottom: 1px solid rgba(200,241,53,0.15); }
+
+    /* Staggered reveal for cards */
+    .stagger-1 { transition-delay: 0s; }
+    .stagger-2 { transition-delay: 0.1s; }
+    .stagger-3 { transition-delay: 0.2s; }
+    .stagger-4 { transition-delay: 0.3s; }
+
+    /* Material icon sizing */
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .icon-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+    /* Before/After reveal */
+    .before-card { transition-delay: 0s; }
+    .after-card  { transition-delay: 0.15s; }
+
+    /* Dashed connector (How It Works) */
+    .step-connector {
+      position: absolute;
+      top: 24px;
+      left: calc(50% + 40px);
+      right: calc(-50% + 40px);
+      height: 2px;
+      border-top: 2px dashed rgba(200,241,53,0.3);
+    }
+  </style>
+</head>
+<body class="bg-bg-primary">
+
+<!-- ===================== NAV ===================== -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 px-6 py-4" style="background: transparent;">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="https://aiprince.dev" class="font-heading font-bold text-lg text-text-primary tracking-tight hover:text-accent-lime transition-colors duration-200">
+      aiprince.dev
+    </a>
+    <a href="https://calendly.com/princeevan/30min" target="_blank" rel="noopener noreferrer"
+       class="btn-primary font-heading font-bold text-sm px-5 py-2.5 rounded-lg transition-all duration-200 hover:scale-105"
+       style="background:#C8F135; color:#0A0F1E;">
+      Book a Free Call
+    </a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="dot-grid min-h-screen flex items-center pt-20 pb-16 px-6">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left: Copy -->
+    <div>
+      <!-- Badge -->
+      <div class="hero-anim delay-0 inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border font-label text-xs font-medium tracking-widest uppercase"
+           style="background:rgba(200,241,53,0.06); border-color:rgba(200,241,53,0.2); color:#C8F135;">
+        <span class="pulse-dot w-2 h-2 rounded-full" style="background:#C8F135; flex-shrink:0;"></span>
+        AI Automation for Local Service Businesses
+      </div>
+
+      <!-- H1 -->
+      <h1 class="hero-anim delay-1 font-heading font-bold text-text-primary leading-tight" style="font-size:clamp(40px,5.5vw,64px); letter-spacing:-0.02em;">
+        Stop Losing Leads<br/>
+        <span style="color:#C8F135;">To Slow Response.</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p class="hero-anim delay-2 font-body text-text-secondary mt-6 leading-relaxed" style="font-size:18px; max-width:480px;">
+        We build AI systems that answer your calls, book your appointments, and follow up with leads — 24/7. Focus on the job. We'll handle the rest.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-anim delay-3 flex flex-wrap gap-4 mt-8">
+        <a href="https://calendly.com/princeevan/30min" target="_blank" rel="noopener noreferrer"
+           class="btn-primary btn-pulse font-heading font-bold rounded-lg transition-all duration-200 hover:scale-105"
+           style="background:#C8F135; color:#0A0F1E; padding:14px 28px; font-size:15px;">
+          Book Your Free Strategy Call
+        </a>
+        <a href="#how-it-works"
+           class="font-heading font-bold rounded-lg transition-all duration-200 hover:bg-accent-lime/10"
+           style="border:1.5px solid #C8F135; color:#C8F135; padding:14px 28px; font-size:15px;">
+          See How It Works
+        </a>
+      </div>
+
+      <!-- Trust line -->
+      <div class="hero-anim delay-4 flex flex-wrap items-center gap-x-5 gap-y-2 mt-6 font-label text-text-muted" style="font-size:13px;">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined icon-filled text-sm" style="font-size:14px; color:#C8F135;">check_circle</span>
+          Free 30-min call
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined icon-filled text-sm" style="font-size:14px; color:#C8F135;">check_circle</span>
+          No contracts
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined icon-filled text-sm" style="font-size:14px; color:#C8F135;">check_circle</span>
+          Done-for-you setup
+        </span>
+      </div>
+    </div>
+
+    <!-- Right: AI Chat Mockup -->
+    <div class="flex justify-center md:justify-end">
+      <div>
+        <div class="rounded-xl p-5 w-80 shadow-2xl" style="background:#0F172A; border:1px solid rgba(200,241,53,0.2);">
+          <!-- Top bar -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="pulse-dot w-2.5 h-2.5 rounded-full" style="background:#C8F135; flex-shrink:0;"></span>
+              <span class="font-heading font-semibold text-text-primary text-sm">AI Receptionist</span>
+            </div>
+            <span class="font-label text-xs px-2 py-0.5 rounded-full font-medium" style="background:rgba(200,241,53,0.12); color:#C8F135;">Active Now</span>
+          </div>
+
+          <!-- Chat bubbles -->
+          <div class="flex flex-col gap-3">
+            <!-- Customer -->
+            <div class="flex justify-end">
+              <div class="rounded-xl rounded-tr-sm px-4 py-2.5 font-body text-sm text-text-primary max-w-[85%]" style="background:#1E293B;">
+                Hi, do you have availability this Friday for a house cleaning?
+              </div>
+            </div>
+            <!-- AI -->
+            <div class="flex justify-start">
+              <div class="rounded-xl rounded-tl-sm px-4 py-2.5 font-body text-sm font-medium max-w-[85%]" style="background:#C8F135; color:#0A0F1E;">
+                Yes! We have a slot at 10AM. Shall I book that for you?
+              </div>
+            </div>
+            <!-- Customer -->
+            <div class="flex justify-end">
+              <div class="rounded-xl rounded-tr-sm px-4 py-2.5 font-body text-sm text-text-primary max-w-[85%]" style="background:#1E293B;">
+                Yes please!
+              </div>
+            </div>
+            <!-- AI -->
+            <div class="flex justify-start">
+              <div class="rounded-xl rounded-tl-sm px-4 py-2.5 font-body text-sm font-medium max-w-[85%]" style="background:#C8F135; color:#0A0F1E;">
+                Booking confirmed! 🎉 You'll receive a reminder 1 hour before arrival.
+              </div>
+            </div>
+            <!-- Typing indicator -->
+            <div class="flex justify-start">
+              <div class="rounded-xl px-4 py-3 flex items-center gap-1.5" style="background:#1E293B;">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Below card label -->
+        <p class="text-center font-label mt-3 text-text-muted" style="font-size:12px;">
+          Responds in under 3 seconds · 24/7 · Never misses a lead
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== PAIN POINTS ===================== -->
+<section id="pain-points" class="py-24 px-6" style="background:#111827;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">Sound Familiar?</span>
+      <h2 class="font-heading font-bold text-text-primary mt-4 mx-auto" style="font-size:clamp(28px,3.5vw,40px); max-width:700px; line-height:1.2;">
+        Running a service business is hard. Losing money because you're too busy working — is worse.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="pain-card reveal stagger-1 rounded-xl p-7" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <span class="material-symbols-outlined mb-4 block" style="font-size:32px; color:#38BDF8;">phone_missed</span>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">Missed Calls & DMs</h3>
+        <p class="font-body text-text-secondary leading-relaxed" style="font-size:15px;">Every missed call is $300–$500 walking straight to your competitor down the street.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="pain-card reveal stagger-2 rounded-xl p-7" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <span class="material-symbols-outlined mb-4 block" style="font-size:32px; color:#38BDF8;">wifi_off</span>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">No Online Presence</h3>
+        <p class="font-body text-text-secondary leading-relaxed" style="font-size:15px;">No website means no trust. Customers Google you and find nothing — so they call someone else.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="pain-card reveal stagger-3 rounded-xl p-7" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <span class="material-symbols-outlined mb-4 block" style="font-size:32px; color:#38BDF8;">star_border</span>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">Stuck at 3 Stars</h3>
+        <p class="font-body text-text-secondary leading-relaxed" style="font-size:15px;">You do great work but nobody asks for reviews. Your Google rating hasn't moved in years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="py-24 px-6" style="background:#0A0F1E;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">What We Build for You</span>
+      <h2 class="font-heading font-bold text-text-primary mt-4" style="font-size:clamp(28px,3.5vw,40px); line-height:1.2;">
+        Every system is done-for-you.<br/>You don't touch the tech.
+      </h2>
+      <p class="font-body text-text-secondary mt-4 mx-auto" style="font-size:16px; max-width:540px;">
+        We build, test, and hand you the keys. You just show up and do the work.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Card 1: Website -->
+      <div class="service-card reveal stagger-1 rounded-xl p-7" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="flex items-start justify-between mb-4">
+          <span class="material-symbols-outlined" style="font-size:28px; color:#C8F135;">monitor</span>
+          <span class="font-label text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(249,192,104,0.12); color:#F9C068;">Foundation</span>
+        </div>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">Professional Website</h3>
+        <p class="font-body text-text-secondary leading-relaxed mb-5" style="font-size:15px;">
+          A fast, mobile-first site that ranks on Google and turns visitors into booked jobs. Most clients go live in 5 days.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">SEO Optimized</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">Mobile First</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">Live in 5 Days</span>
+        </div>
+      </div>
+
+      <!-- Card 2: AI Receptionist -->
+      <div class="service-card reveal stagger-2 rounded-xl p-7" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="flex items-start justify-between mb-4">
+          <span class="material-symbols-outlined" style="font-size:28px; color:#C8F135;">smart_toy</span>
+          <span class="font-label text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.12); color:#C8F135;">Most Popular</span>
+        </div>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">AI Receptionist</h3>
+        <p class="font-body text-text-secondary leading-relaxed mb-5" style="font-size:15px;">
+          An AI that replies to every DM, missed call, and inquiry instantly — books the job and follows up automatically. Zero missed leads.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">24/7 Response</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">Auto Booking</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">Lead Follow-Up</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Smart Booking -->
+      <div class="service-card reveal stagger-3 rounded-xl p-7" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="flex items-start justify-between mb-4">
+          <span class="material-symbols-outlined" style="font-size:28px; color:#C8F135;">event_available</span>
+          <span class="font-label text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(56,189,248,0.12); color:#38BDF8;">Time Saver</span>
+        </div>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">Smart Booking System</h3>
+        <p class="font-body text-text-secondary leading-relaxed mb-5" style="font-size:15px;">
+          Customers book online, you get a notification, and confirm with one tap. No phone tag. No back and forth.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">One-Tap Confirm</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">Auto Reminders</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">No-Show Reduction</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Reviews -->
+      <div class="service-card reveal stagger-4 rounded-xl p-7" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="flex items-start justify-between mb-4">
+          <span class="material-symbols-outlined" style="font-size:28px; color:#C8F135;">reviews</span>
+          <span class="font-label text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(249,192,104,0.12); color:#F9C068;">Reputation</span>
+        </div>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">Auto Review Requests</h3>
+        <p class="font-body text-text-secondary leading-relaxed mb-5" style="font-size:15px;">
+          After every completed job, your client automatically gets a message asking for a Google review. Runs without you lifting a finger.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">Google Reviews</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">Auto Follow-Up</span>
+          <span class="font-label text-xs px-3 py-1 rounded-full" style="background:rgba(200,241,53,0.08); color:#94A3B8;">5-Star Pipeline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BEFORE & AFTER ===================== -->
+<section id="before-after" class="py-24 px-6" style="background:#111827;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">The Transformation</span>
+      <h2 class="font-heading font-bold text-text-primary mt-4" style="font-size:clamp(28px,3.5vw,40px);">
+        What changes when you run on autopilot.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <!-- Before -->
+      <div class="before-card reveal rounded-xl p-8" style="background:#0F172A; border:1px solid rgba(239,68,68,0.2);">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2.5 h-2.5 rounded-full" style="background:#EF4444;"></span>
+          <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#EF4444;">Before</span>
+        </div>
+        <ul class="flex flex-col gap-4">
+          <li class="flex items-start gap-3 font-body text-text-secondary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#EF4444;">✕</span>
+            Phone rings while you're on the job — you miss it
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-secondary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#EF4444;">✕</span>
+            Customer doesn't hear back — books your competitor
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-secondary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#EF4444;">✕</span>
+            No website — new customers can't find or trust you
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-secondary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#EF4444;">✕</span>
+            Bookings managed over WhatsApp and phone calls
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-secondary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#EF4444;">✕</span>
+            Forget to ask for reviews — rating stays stuck
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-secondary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#EF4444;">✕</span>
+            Spend evenings doing admin instead of resting
+          </li>
+        </ul>
+      </div>
+
+      <!-- After -->
+      <div class="after-card reveal rounded-xl p-8" style="background:#0F172A; border:1px solid rgba(200,241,53,0.2);">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2.5 h-2.5 rounded-full" style="background:#C8F135;"></span>
+          <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">After</span>
+        </div>
+        <ul class="flex flex-col gap-4">
+          <li class="flex items-start gap-3 font-body text-text-primary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#C8F135;">✓</span>
+            AI answers every call and DM instantly — 24/7
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-primary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#C8F135;">✓</span>
+            Every lead gets followed up automatically until they book
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-primary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#C8F135;">✓</span>
+            Professional website live in 5 days — ranks on Google
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-primary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#C8F135;">✓</span>
+            Customers book online, you confirm with one tap
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-primary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#C8F135;">✓</span>
+            Every completed job triggers an automatic review request
+          </li>
+          <li class="flex items-start gap-3 font-body text-text-primary" style="font-size:15px;">
+            <span class="font-bold mt-0.5 flex-shrink-0" style="color:#C8F135;">✓</span>
+            Your evenings are yours — the system runs itself
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Callout -->
+    <p class="reveal text-center font-heading font-medium text-text-secondary italic mx-auto" style="font-size:20px; max-width:600px;">
+      "The businesses winning in your area aren't working harder. They're running smarter systems."
+    </p>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section id="how-it-works" class="py-24 px-6" style="background:#0A0F1E;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">The Process</span>
+      <h2 class="font-heading font-bold text-text-primary mt-4" style="font-size:clamp(28px,3.5vw,40px);">
+        Up and running in 2 weeks. Here's how.
+      </h2>
+    </div>
+
+    <!-- Steps: desktop horizontal, mobile vertical -->
+    <div class="flex flex-col md:flex-row gap-10 md:gap-0 relative">
+      <!-- Dashed line desktop only -->
+      <div class="hidden md:block absolute top-6 left-0 right-0" style="height:2px; border-top:2px dashed rgba(200,241,53,0.25); z-index:0; margin: 0 16.5%;"></div>
+
+      <!-- Step 1 -->
+      <div class="flex-1 reveal stagger-1 flex flex-col md:items-center md:text-center relative z-10 px-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background:#0F172A; border:1.5px solid rgba(200,241,53,0.3);">
+          <span class="font-heading font-bold" style="color:#C8F135; font-size:16px;">01</span>
+        </div>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">We Audit Your Setup</h3>
+        <p class="font-body text-text-secondary leading-relaxed" style="font-size:15px; max-width:260px;">
+          Free 30-minute call where we map your current workflow and find exactly where leads and bookings are slipping through.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex-1 reveal stagger-2 flex flex-col md:items-center md:text-center relative z-10 px-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background:#0F172A; border:1.5px solid rgba(200,241,53,0.3);">
+          <span class="font-heading font-bold" style="color:#C8F135; font-size:16px;">02</span>
+        </div>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">We Build Everything</h3>
+        <p class="font-body text-text-secondary leading-relaxed" style="font-size:15px; max-width:260px;">
+          Website, AI receptionist, booking system, and review automation — all built, tested, and ready in 2 weeks.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex-1 reveal stagger-3 flex flex-col md:items-center md:text-center relative z-10 px-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background:#0F172A; border:1.5px solid rgba(200,241,53,0.3);">
+          <span class="font-heading font-bold" style="color:#C8F135; font-size:16px;">03</span>
+        </div>
+        <h3 class="font-heading font-bold text-text-primary text-xl mb-3">You Run on Autopilot</h3>
+        <p class="font-body text-text-secondary leading-relaxed" style="font-size:15px; max-width:260px;">
+          Go live. Leads get answered, jobs get booked, and 5-star reviews start rolling in — without you doing a thing.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY US ===================== -->
+<section id="why-us" class="py-24 px-6" style="background:#111827;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">Why aiprince.dev</span>
+      <h2 class="font-heading font-bold text-text-primary mt-4" style="font-size:clamp(28px,3.5vw,40px);">
+        Built on tools the top US agencies use.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-10 max-w-3xl mx-auto">
+      <div class="reveal stagger-1 flex items-start gap-4">
+        <span class="material-symbols-outlined flex-shrink-0 mt-1" style="font-size:28px; color:#C8F135;">verified_user</span>
+        <div>
+          <h3 class="font-heading font-bold text-text-primary text-lg mb-1">Built on GoHighLevel</h3>
+          <p class="font-body text-text-secondary" style="font-size:15px;">The same platform powering 60,000+ agencies across the US.</p>
+        </div>
+      </div>
+      <div class="reveal stagger-2 flex items-start gap-4">
+        <span class="material-symbols-outlined flex-shrink-0 mt-1" style="font-size:28px; color:#C8F135;">bolt</span>
+        <div>
+          <h3 class="font-heading font-bold text-text-primary text-lg mb-1">100% Done-For-You</h3>
+          <p class="font-body text-text-secondary" style="font-size:15px;">We build and manage everything. You just approve and go live.</p>
+        </div>
+      </div>
+      <div class="reveal stagger-3 flex items-start gap-4">
+        <span class="material-symbols-outlined flex-shrink-0 mt-1" style="font-size:28px; color:#C8F135;">schedule</span>
+        <div>
+          <h3 class="font-heading font-bold text-text-primary text-lg mb-1">Live in 2 Weeks</h3>
+          <p class="font-body text-text-secondary" style="font-size:15px;">Fast turnaround. Every day without automation is a day losing leads to competitors.</p>
+        </div>
+      </div>
+      <div class="reveal stagger-4 flex items-start gap-4">
+        <span class="material-symbols-outlined flex-shrink-0 mt-1" style="font-size:28px; color:#C8F135;">headset_mic</span>
+        <div>
+          <h3 class="font-heading font-bold text-text-primary text-lg mb-1">Ongoing Support</h3>
+          <p class="font-body text-text-secondary" style="font-size:15px;">We don't disappear after setup. We monitor, adjust, and optimize your systems every month.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="py-24 px-6" style="background:#0A0F1E;">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">Common Questions</span>
+      <h2 class="font-heading font-bold text-text-primary mt-4" style="font-size:clamp(28px,3.5vw,40px);">
+        Everything you need to know.
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-3" id="faq-list">
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">Do I need to be tech-savvy to use any of this?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">Not at all. We handle 100% of the setup and configuration. Once everything is live, your job is simple — you get a notification when a new booking comes in and confirm it with one tap. That's it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">How long does it take to get everything set up?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">Most clients are fully live within 2 weeks. The website typically goes live within 5 days. The AI receptionist, booking system, and review automation are set up and tested in parallel so everything launches together.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">What if I already have a website?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">No problem. We can either work with your existing site or build you a new one — whichever makes more sense for your business. We'll assess it on the strategy call and give you an honest recommendation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">Will the AI sound robotic when talking to my customers?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">No. We train the AI on your business — your services, your prices, your tone, your FAQs. It responds naturally and professionally. Most customers don't realize they're talking to an AI until a job is already booked.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">What happens when a customer asks something the AI can't answer?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">The AI is trained to handle the most common questions and booking requests. If something falls outside its knowledge, it lets the customer know you'll follow up personally — and it notifies you immediately so no lead slips through.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">Do I have to sign a long-term contract?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">No long-term contracts. We work month-to-month. We'd rather keep your business by delivering results than lock you into something you're not happy with.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">Is this only for big businesses?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">This is built specifically for small independent service businesses. Solo operators and small teams get the most value because they're the ones spending the most time on admin and missing the most leads.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl cursor-pointer" style="background:#0F172A; border:1px solid rgba(200,241,53,0.12);">
+        <div class="faq-question flex items-center justify-between px-6 py-5">
+          <span class="font-heading font-medium text-text-primary" style="font-size:17px;">How do I get started?</span>
+          <span class="material-symbols-outlined faq-arrow flex-shrink-0 ml-4" style="color:#C8F135; font-size:20px;">expand_more</span>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-text-secondary leading-relaxed pb-5" style="font-size:15px;">Book a free 30-minute strategy call. We'll look at your current setup, identify exactly where you're losing leads, and walk you through what we'd build for your specific business. No pressure, no pitch — just a clear plan.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOUNDER ===================== -->
+<section id="about" class="py-24 px-6" style="background:#111827;">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
+
+      <!-- Left: Avatar -->
+      <div class="flex flex-col items-center flex-shrink-0 reveal">
+        <div class="w-28 h-28 rounded-full flex items-center justify-center mb-4 font-heading font-bold" style="background:#0F172A; border:2px solid #C8F135; font-size:32px; color:#C8F135;">
+          PE
+        </div>
+        <p class="font-heading font-bold text-text-primary text-lg">Prince Evan</p>
+        <p class="font-label text-text-muted mt-1 text-center" style="font-size:13px;">AI Automation Specialist · Cebu, Philippines</p>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="reveal flex-1">
+        <span class="font-label text-xs font-semibold tracking-widest uppercase" style="color:#C8F135;">The Person Behind It</span>
+        <h3 class="font-heading font-bold text-text-primary mt-3 mb-4" style="font-size:clamp(22px,2.5vw,28px);">
+          I build the systems. You focus on the work.
+        </h3>
+        <p class="font-body text-text-secondary leading-relaxed mb-6" style="font-size:16px;">
+          Hi, I'm Prince — an AI automation specialist who helps local service businesses in the US get more bookings, more Google reviews, and spend less time on admin. I've built 50+ automation workflows and I know exactly what it takes to turn a manually-run operation into one that runs itself. I work with a small number of clients at a time so every system gets my full attention.
+        </p>
+        <!-- Stat pills -->
+        <div class="flex flex-wrap gap-3">
+          <div class="flex items-center gap-2 px-4 py-2.5 rounded-full font-label font-semibold" style="background:#0F172A; border:1px solid rgba(200,241,53,0.2); font-size:13px;">
+            <span style="color:#C8F135;">50+</span>
+            <span class="text-text-secondary">Workflows Built</span>
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2.5 rounded-full font-label font-semibold" style="background:#0F172A; border:1px solid rgba(200,241,53,0.2); font-size:13px;">
+            <span style="color:#C8F135;">12,000+</span>
+            <span class="text-text-secondary">Hours Saved for Clients</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section id="cta" class="px-6" style="background:#0A0F1E; padding-top:120px; padding-bottom:120px;">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <h2 class="font-heading font-bold text-text-primary" style="font-size:clamp(32px,4.5vw,48px); line-height:1.15;">
+      Ready to Stop Missing Leads?
+    </h2>
+    <p class="font-body text-text-secondary mt-6 mx-auto leading-relaxed" style="font-size:18px; max-width:560px;">
+      Book a free 30-minute call. We'll map out exactly what your business needs and show you the system live — no pressure, no pitch, no commitment.
+    </p>
+    <div class="mt-10">
+      <a href="https://calendly.com/princeevan/30min" target="_blank" rel="noopener noreferrer"
+         class="btn-primary inline-block font-heading font-bold rounded-lg transition-all duration-200 hover:scale-105"
+         style="background:#C8F135; color:#0A0F1E; padding:18px 40px; font-size:18px;">
+        Book My Free Call →
+      </a>
+    </div>
+    <p class="font-label text-text-muted italic mt-5" style="font-size:13px;">
+      Spots are limited — I only take on a small number of clients at a time.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#060B14; border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <!-- Left -->
+    <div class="flex flex-col items-center md:items-start">
+      <span class="font-heading font-bold text-text-primary text-base">aiprince.dev</span>
+      <span class="font-label text-text-muted uppercase tracking-widest mt-1" style="font-size:11px;">The Automated Architect</span>
+    </div>
+    <!-- Center -->
+    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+      <a href="https://aiprince.dev" class="font-body text-text-muted hover:text-accent-lime transition-colors duration-200" style="font-size:14px;">Home</a>
+      <a href="#services" class="font-body text-text-muted hover:text-accent-lime transition-colors duration-200" style="font-size:14px;">Services</a>
+      <a href="#how-it-works" class="font-body text-text-muted hover:text-accent-lime transition-colors duration-200" style="font-size:14px;">How It Works</a>
+      <a href="#faq" class="font-body text-text-muted hover:text-accent-lime transition-colors duration-200" style="font-size:14px;">FAQ</a>
+      <a href="https://calendly.com/princeevan/30min" target="_blank" rel="noopener noreferrer" class="font-body text-text-muted hover:text-accent-lime transition-colors duration-200" style="font-size:14px;">Book a Call</a>
+    </nav>
+    <!-- Right -->
+    <p class="font-label text-text-dim" style="font-size:12px;">© 2026 aiprince.dev. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Nav scroll behavior
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Scroll reveal with IntersectionObserver
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Close all
+      faqItems.forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').classList.remove('open');
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.faq-answer').classList.add('open');
+      }
+    });
+  });
+</script>
+</body>
+</html>
