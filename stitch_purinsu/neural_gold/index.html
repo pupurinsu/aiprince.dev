@@ -84,8 +84,33 @@
     }
     .connection-path { stroke-dasharray: 4; opacity: 0.1; }
     /* Fade-in on scroll */
-    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
+    /* Stagger reveal for grid children */
+    .stagger-children > * { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .stagger-children.visible > * { opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(1)  { transition-delay: 0ms; }
+    .stagger-children.visible > *:nth-child(2)  { transition-delay: 70ms; }
+    .stagger-children.visible > *:nth-child(3)  { transition-delay: 140ms; }
+    .stagger-children.visible > *:nth-child(4)  { transition-delay: 210ms; }
+    .stagger-children.visible > *:nth-child(5)  { transition-delay: 280ms; }
+    .stagger-children.visible > *:nth-child(6)  { transition-delay: 350ms; }
+    .stagger-children.visible > *:nth-child(7)  { transition-delay: 420ms; }
+    .stagger-children.visible > *:nth-child(8)  { transition-delay: 490ms; }
+    /* Tool marquee */
+    @keyframes marquee-scroll {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+    .marquee-track { animation: marquee-scroll 50s linear infinite; will-change: transform; }
+    .marquee-track:hover { animation-play-state: paused; }
+    /* Filter card transitions */
+    .case-card { transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .case-card.is-hidden { opacity: 0; transform: scale(0.96); pointer-events: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+      .fade-in, .stagger-children > * { transition: none; }
+    }
     /* Node pulse animation */
     @keyframes pulse-ring {
       0% { transform: scale(1); opacity: 0.4; }
@@ -186,27 +211,97 @@
         </a>
       </div>
       <!-- Stats row -->
-      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto fade-in">
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto stagger-children">
         <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10">
-          <div class="text-3xl font-black font-headline text-primary">40+</div>
+          <div class="text-3xl font-black font-headline text-primary count-up" data-target="40" data-suffix="+">0</div>
           <div class="text-xs text-stone-500 uppercase tracking-widest mt-1 font-label">Workflows Built</div>
         </div>
         <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10">
-          <div class="text-3xl font-black font-headline text-primary">12k+</div>
+          <div class="text-3xl font-black font-headline text-primary count-up" data-target="12000" data-suffix="+" data-format="k">0</div>
           <div class="text-xs text-stone-500 uppercase tracking-widest mt-1 font-label">Hours Saved</div>
         </div>
         <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10">
-          <div class="text-3xl font-black font-headline text-primary">98%</div>
+          <div class="text-3xl font-black font-headline text-primary count-up" data-target="98" data-suffix="%">0</div>
           <div class="text-xs text-stone-500 uppercase tracking-widest mt-1 font-label">Client Retention</div>
         </div>
         <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10">
-          <div class="text-3xl font-black font-headline text-primary">3x</div>
+          <div class="text-3xl font-black font-headline text-primary count-up" data-target="3" data-suffix="x">0</div>
           <div class="text-xs text-stone-500 uppercase tracking-widest mt-1 font-label">Avg. ROI</div>
         </div>
       </div>
       <p class="text-stone-500 text-xs font-label text-center mt-4 tracking-wide">
         Make / n8n / Zapier certified · 14 systems live in production
       </p>
+    </div>
+
+    <!-- Tool marquee -->
+    <div class="mt-20 relative overflow-hidden border-y border-outline-variant/10 bg-surface-container-lowest/50">
+      <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
+      <div class="flex marquee-track py-6 gap-12 whitespace-nowrap">
+        <!-- Group 1 -->
+        <div class="flex gap-12 items-center flex-shrink-0">
+          <span class="text-stone-500 font-headline text-base tracking-wide">n8n</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Make.com</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Zapier</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Claude</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">OpenAI</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Stripe</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">BigQuery</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Gmail</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Slack</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">HubSpot</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Airtable</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Telegram</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Notion</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Google Sheets</span>
+          <span class="text-outline-variant text-xs">●</span>
+        </div>
+        <!-- Group 2 (duplicate for seamless loop) -->
+        <div class="flex gap-12 items-center flex-shrink-0" aria-hidden="true">
+          <span class="text-stone-500 font-headline text-base tracking-wide">n8n</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Make.com</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Zapier</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Claude</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">OpenAI</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Stripe</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">BigQuery</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Gmail</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Slack</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">HubSpot</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Airtable</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Telegram</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Notion</span>
+          <span class="text-outline-variant text-xs">●</span>
+          <span class="text-stone-500 font-headline text-base tracking-wide">Google Sheets</span>
+          <span class="text-outline-variant text-xs">●</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -226,7 +321,7 @@
       </div>
 
       <!-- Node diagram -->
-      <div class="relative grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-0 items-start fade-in">
+      <div class="relative grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-0 items-start stagger-children">
         <!-- Connecting line (desktop) -->
         <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent"></div>
 
@@ -289,7 +384,7 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children">
         <!-- Card 1: AI Implementation -->
         <div class="group relative bg-surface-container-low rounded-xl p-10 border border-outline-variant/10 shadow-[0_40px_60px_-15px_rgba(0,0,0,0.3)] hover:bg-surface-container transition-colors duration-500">
           <div class="flex justify-between items-start mb-12">
@@ -416,7 +511,7 @@
         <button class="case-filter px-4 py-2 rounded-full text-xs font-label tracking-wide border border-outline-variant/30 text-on-surface-variant hover:border-primary/30 hover:text-primary transition-colors" data-filter="api">API Integrations</button>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
         <!-- Case Study 1 -->
         <div class="case-card group bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-500 hover:-translate-y-1" data-category="ai">
           <div class="h-48 bg-gradient-to-br from-surface-container to-surface-container-high flex items-center justify-center relative overflow-hidden">
@@ -1025,7 +1120,7 @@
           What clients <span class="text-primary">actually say.</span>
         </h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
 
         <!-- Testimonial 1 -->
         <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 flex flex-col justify-between">
@@ -1226,7 +1321,37 @@
         if (entry.isIntersecting) { entry.target.classList.add('visible'); }
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+    document.querySelectorAll('.fade-in, .stagger-children').forEach(el => fadeObserver.observe(el));
+
+    // Counter animation on hero stats
+    const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+    function animateCount(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const format = el.dataset.format || '';
+      const duration = 1800;
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const v = Math.floor(target * easeOutQuart(t));
+        let display;
+        if (format === 'k' && v >= 1000) display = (v / 1000).toFixed(v >= 10000 ? 0 : 1).replace(/\.0$/, '') + 'k';
+        else display = v.toString();
+        el.textContent = display + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = (format === 'k' ? Math.round(target / 1000) + 'k' : target) + suffix;
+      }
+      requestAnimationFrame(tick);
+    }
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = '1';
+          animateCount(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -1320,7 +1445,7 @@
     }
 
 
-    // Case study filter chips
+    // Case study filter chips, smooth fade transitions
     document.querySelectorAll('.case-filter').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.dataset.filter;
@@ -1332,7 +1457,8 @@
         btn.classList.remove('border-outline-variant/30', 'text-on-surface-variant');
         document.querySelectorAll('.case-card').forEach(card => {
           const cat = card.dataset.category;
-          card.style.display = (target === 'all' || cat === target) ? '' : 'none';
+          const show = target === 'all' || cat === target;
+          card.classList.toggle('is-hidden', !show);
         });
       });
     });
