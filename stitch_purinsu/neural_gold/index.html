@@ -86,13 +86,6 @@
     /* Fade-in on scroll */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-    /* Gradient text */
-    .gradient-text {
-      background: linear-gradient(135deg, #f9c068 0%, #ffddb0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
     /* Node pulse animation */
     @keyframes pulse-ring {
       0% { transform: scale(1); opacity: 0.4; }
@@ -135,6 +128,7 @@
       <a class="nav-link text-stone-400 font-medium font-headline text-sm tracking-tight hover:text-amber-200 transition-all duration-300" href="#services">Solutions</a>
       <a class="nav-link text-stone-400 font-medium font-headline text-sm tracking-tight hover:text-amber-200 transition-all duration-300" href="#work">Case Studies</a>
       <a class="nav-link text-stone-400 font-medium font-headline text-sm tracking-tight hover:text-amber-200 transition-all duration-300" href="#portfolio">Portfolio</a>
+      <a class="nav-link text-stone-400 font-medium font-headline text-sm tracking-tight hover:text-amber-200 transition-all duration-300" href="#testimonial-video">Testimonial</a>
       <a class="nav-link text-stone-400 font-medium font-headline text-sm tracking-tight hover:text-amber-200 transition-all duration-300" href="#about">About</a>
       <a class="nav-link text-stone-400 font-medium font-headline text-sm tracking-tight hover:text-amber-200 transition-all duration-300" href="#contact">Connect</a>
     </div>
@@ -155,6 +149,7 @@
       <a class="text-stone-300 font-headline text-sm tracking-tight hover:text-primary transition-colors" href="#services" onclick="closeMenu()">Solutions</a>
       <a class="text-stone-300 font-headline text-sm tracking-tight hover:text-primary transition-colors" href="#work" onclick="closeMenu()">Case Studies</a>
       <a class="text-stone-300 font-headline text-sm tracking-tight hover:text-primary transition-colors" href="#portfolio" onclick="closeMenu()">Portfolio</a>
+      <a class="text-stone-300 font-headline text-sm tracking-tight hover:text-primary transition-colors" href="#testimonial-video" onclick="closeMenu()">Testimonial</a>
       <a class="text-stone-300 font-headline text-sm tracking-tight hover:text-primary transition-colors" href="#about" onclick="closeMenu()">About</a>
       <a class="text-stone-300 font-headline text-sm tracking-tight hover:text-primary transition-colors" href="#contact" onclick="closeMenu()">Connect</a>
     </div>
@@ -174,11 +169,11 @@
         Automation Specialist · AI Architect
       </span>
       <h1 class="text-5xl md:text-7xl font-bold font-headline text-white tracking-tighter max-w-5xl mx-auto leading-[1.05]">
-        Build businesses that<br/><span class="gradient-text italic">run themselves.</span>
+        Build businesses that<br/><span class="text-primary italic">run themselves.</span>
       </h1>
       <p class="mt-8 text-on-surface-variant text-lg max-w-2xl mx-auto font-light leading-relaxed">
         I build the automations that let your team stop copy-pasting data and start focusing
-        on work that actually matters. From CRM pipelines to AI agents — I design systems
+        on work that actually matters. From CRM pipelines to AI agents, I design systems
         that run while you sleep.
       </p>
       <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -193,7 +188,7 @@
       <!-- Stats row -->
       <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto fade-in">
         <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10">
-          <div class="text-3xl font-black font-headline text-primary">50+</div>
+          <div class="text-3xl font-black font-headline text-primary">40+</div>
           <div class="text-xs text-stone-500 uppercase tracking-widest mt-1 font-label">Workflows Built</div>
         </div>
         <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10">
@@ -209,8 +204,8 @@
           <div class="text-xs text-stone-500 uppercase tracking-widest mt-1 font-label">Avg. ROI</div>
         </div>
       </div>
-      <p class="text-stone-600 text-xs font-label text-center mt-4 tracking-wide">
-        Figures based on aggregate results across client engagements.
+      <p class="text-stone-500 text-xs font-label text-center mt-4 tracking-wide">
+        Make / n8n / Zapier certified · 14 systems live in production
       </p>
     </div>
   </section>
@@ -222,8 +217,8 @@
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16 fade-in">
         <span class="text-xs text-outline tracking-[0.3em] uppercase font-label border border-outline-variant/30 px-4 py-1.5 rounded-full">Process</span>
-        <h2 class="mt-6 text-4xl md:text-5xl font-bold font-headline text-white tracking-tight">
-          How the <span class="gradient-text">architecture</span> works
+        <h2 class="mt-6 text-3xl md:text-4xl font-bold font-headline text-white tracking-tight">
+          How the <span class="text-primary">architecture</span> works
         </h2>
         <p class="mt-4 text-on-surface-variant max-w-xl mx-auto font-light">
           A systematic four-phase approach that transforms operational chaos into autonomous, scalable systems.
@@ -252,7 +247,7 @@
           </div>
           <div class="text-xs text-outline tracking-widest uppercase font-label mb-2">Phase 02</div>
           <h3 class="text-lg font-bold font-headline text-white mb-3">Design</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed">Blueprint the automation architecture — mapping every node, trigger, and data flow.</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Blueprint the automation architecture, mapping every node, trigger, and data flow.</p>
         </div>
 
         <!-- Node 3 -->
@@ -262,7 +257,7 @@
           </div>
           <div class="text-xs text-outline tracking-widest uppercase font-label mb-2">Phase 03</div>
           <h3 class="text-lg font-bold font-headline text-white mb-3">Implement</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed">Deploy the full automation stack — tested, documented, and production-ready.</p>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Deploy the full automation stack, tested, documented, and production-ready.</p>
         </div>
 
         <!-- Node 4 -->
@@ -282,24 +277,17 @@
        SECTION 3: SERVICES
   ─────────────────────────────────────────── -->
   <section id="services" class="py-24 px-6 relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid-pattern -z-10"></div>
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16 fade-in">
         <span class="text-xs text-outline tracking-[0.3em] uppercase font-label border border-outline-variant/30 px-4 py-1.5 rounded-full">Service Architecture</span>
         <h2 class="mt-6 text-4xl md:text-5xl font-bold font-headline text-white tracking-tighter max-w-3xl mx-auto leading-tight">
-          Scalable Solutions for <span class="gradient-text italic">Modern Business.</span>
+          Scalable Solutions for <span class="text-primary italic">Modern Business.</span>
         </h2>
         <p class="mt-4 text-on-surface-variant text-lg max-w-2xl mx-auto font-light leading-relaxed">
           Four core service areas. Each one engineered to remove a specific type of operational
-          drag from your business — so your team spends time on decisions, not data entry.
+          drag from your business, so your team spends time on decisions, not data entry.
         </p>
       </div>
-
-      <!-- SVG Connection Paths (Decorative) -->
-      <svg class="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-        <path class="connection-path" d="M100,200 Q400,100 800,300" fill="transparent" stroke="#504537"></path>
-        <path class="connection-path" d="M900,500 Q600,800 200,600" fill="transparent" stroke="#504537"></path>
-      </svg>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
         <!-- Card 1: AI Implementation -->
@@ -413,36 +401,26 @@
       <div class="text-center mb-16 fade-in">
         <span class="text-xs text-outline tracking-[0.3em] uppercase font-label border border-outline-variant/30 px-4 py-1.5 rounded-full">Case Studies</span>
         <h2 class="mt-6 text-4xl md:text-5xl font-bold font-headline text-white tracking-tight">
-          Real systems. <span class="gradient-text">Real results.</span>
+          Real systems. <span class="text-primary">Real results.</span>
         </h2>
         <p class="mt-4 text-on-surface-variant max-w-xl mx-auto font-light">
           High-growth firms that reclaimed thousands of hours through precision-engineered workflows.
         </p>
       </div>
 
-      <div class="max-w-2xl mx-auto mb-16 fade-in">
-        <div class="relative flex items-center bg-surface-container-low border border-outline-variant/20 rounded-full px-6 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] focus-within:border-primary/40 transition-all duration-300">
-          <span class="material-symbols-outlined text-primary mr-4 text-xl">search</span>
-          <span
-            id="search-bar-text"
-            class="text-on-surface-variant font-body text-sm flex-1 min-h-[1.25rem]">
-          </span>
-          <span id="search-cursor" class="inline-block w-0.5 h-4 bg-primary ml-0.5 animate-pulse"></span>
-          <div class="ml-4 bg-gradient-to-br from-primary to-primary-container text-on-primary px-4 py-1.5 rounded-full text-xs font-bold font-headline">
-            Search
-          </div>
-        </div>
-        <p class="text-center text-xs text-stone-600 mt-3 font-label tracking-widest uppercase">
-          What can I solve for you?
-        </p>
+      <div class="max-w-3xl mx-auto mb-16 fade-in flex flex-wrap justify-center gap-3">
+        <span class="text-xs text-stone-500 font-label uppercase tracking-widest self-center mr-2">Filter</span>
+        <button class="case-filter is-active px-4 py-2 rounded-full text-xs font-label tracking-wide bg-primary/10 border border-primary/30 text-primary transition-colors" data-filter="all">All</button>
+        <button class="case-filter px-4 py-2 rounded-full text-xs font-label tracking-wide border border-outline-variant/30 text-on-surface-variant hover:border-primary/30 hover:text-primary transition-colors" data-filter="ai">AI Agents</button>
+        <button class="case-filter px-4 py-2 rounded-full text-xs font-label tracking-wide border border-outline-variant/30 text-on-surface-variant hover:border-primary/30 hover:text-primary transition-colors" data-filter="crm">CRM Pipelines</button>
+        <button class="case-filter px-4 py-2 rounded-full text-xs font-label tracking-wide border border-outline-variant/30 text-on-surface-variant hover:border-primary/30 hover:text-primary transition-colors" data-filter="api">API Integrations</button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
         <!-- Case Study 1 -->
-        <div class="group bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-500 hover:-translate-y-1">
+        <div class="case-card group bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-500 hover:-translate-y-1" data-category="ai">
           <div class="h-48 bg-gradient-to-br from-surface-container to-surface-container-high flex items-center justify-center relative overflow-hidden">
             <span class="material-symbols-outlined text-7xl text-primary/20">smart_toy</span>
-            <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
           </div>
           <div class="p-8">
             <div class="flex gap-2 mb-4">
@@ -452,18 +430,7 @@
             <h3 class="text-xl font-bold font-headline text-white mb-3">AI Customer Support Agent</h3>
             <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Deployed a multi-modal AI agent handling 80% of tier-1 support tickets autonomously, reducing response time from 4h to 3min.</p>
             <!-- Before/After metrics -->
-            <div class="grid grid-cols-2 gap-4 mb-6">
-              <div class="bg-surface-container rounded-lg p-3 text-center">
-                <div class="text-xs text-stone-500 font-label uppercase tracking-wider mb-1">Before</div>
-                <div class="text-lg font-black font-headline text-stone-400">4h avg</div>
-                <div class="text-xs text-stone-600">Response Time</div>
-              </div>
-              <div class="bg-primary/10 rounded-lg p-3 text-center border border-primary/20">
-                <div class="text-xs text-primary/70 font-label uppercase tracking-wider mb-1">After</div>
-                <div class="text-lg font-black font-headline text-primary">3min</div>
-                <div class="text-xs text-primary/50">Response Time</div>
-              </div>
-            </div>
+            <div class="flex items-baseline gap-3 mb-6 pb-4 border-b border-outline-variant/15"><span class="text-sm font-headline text-stone-500">4h avg</span><span class="material-symbols-outlined text-primary/50 text-base">arrow_forward</span><span class="text-2xl font-black font-headline text-primary">3min</span><span class="text-xs text-stone-500 font-label uppercase tracking-wider ml-auto">Response Time</span></div>
             <div class="flex items-center justify-center gap-4 flex-wrap">
               <a onclick="openModal(0)" class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-4 transition-all duration-300 cursor-pointer">
                 View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -473,10 +440,9 @@
         </div>
 
         <!-- Case Study 2 -->
-        <div class="group bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-500 hover:-translate-y-1">
+        <div class="case-card group bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-500 hover:-translate-y-1" data-category="crm">
           <div class="h-48 bg-gradient-to-br from-surface-container to-surface-container-high flex items-center justify-center relative overflow-hidden">
             <span class="material-symbols-outlined text-7xl text-primary/20">hub</span>
-            <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
           </div>
           <div class="p-8">
             <div class="flex gap-2 mb-4">
@@ -485,18 +451,7 @@
             </div>
             <h3 class="text-xl font-bold font-headline text-white mb-3">Sales Pipeline Rebuild</h3>
             <p class="text-sm text-on-surface-variant leading-relaxed mb-6">End-to-end CRM overhaul with automated lead scoring, nurture sequences, and deal-stage triggers. Closed rate tripled in 90 days.</p>
-            <div class="grid grid-cols-2 gap-4 mb-6">
-              <div class="bg-surface-container rounded-lg p-3 text-center">
-                <div class="text-xs text-stone-500 font-label uppercase tracking-wider mb-1">Before</div>
-                <div class="text-lg font-black font-headline text-stone-400">8%</div>
-                <div class="text-xs text-stone-600">Close Rate</div>
-              </div>
-              <div class="bg-primary/10 rounded-lg p-3 text-center border border-primary/20">
-                <div class="text-xs text-primary/70 font-label uppercase tracking-wider mb-1">After</div>
-                <div class="text-lg font-black font-headline text-primary">27%</div>
-                <div class="text-xs text-primary/50">Close Rate</div>
-              </div>
-            </div>
+            <div class="flex items-baseline gap-3 mb-6 pb-4 border-b border-outline-variant/15"><span class="text-sm font-headline text-stone-500">8%</span><span class="material-symbols-outlined text-primary/50 text-base">arrow_forward</span><span class="text-2xl font-black font-headline text-primary">27%</span><span class="text-xs text-stone-500 font-label uppercase tracking-wider ml-auto">Close Rate</span></div>
             <a onclick="openModal(1)" class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-4 transition-all duration-300 cursor-pointer">
               View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
@@ -504,10 +459,9 @@
         </div>
 
         <!-- Case Study 3 -->
-        <div class="group bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-500 hover:-translate-y-1">
+        <div class="case-card group bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-500 hover:-translate-y-1" data-category="api">
           <div class="h-48 bg-gradient-to-br from-surface-container to-surface-container-high flex items-center justify-center relative overflow-hidden">
             <span class="material-symbols-outlined text-7xl text-primary/20">account_tree</span>
-            <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
           </div>
           <div class="p-8">
             <div class="flex gap-2 mb-4">
@@ -516,18 +470,7 @@
             </div>
             <h3 class="text-xl font-bold font-headline text-white mb-3">Multi-Platform Data Sync</h3>
             <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Built real-time middleware connecting 6 legacy systems. Eliminated 40+ hours/week of manual data entry and reconciliation.</p>
-            <div class="grid grid-cols-2 gap-4 mb-6">
-              <div class="bg-surface-container rounded-lg p-3 text-center">
-                <div class="text-xs text-stone-500 font-label uppercase tracking-wider mb-1">Before</div>
-                <div class="text-lg font-black font-headline text-stone-400">40h/wk</div>
-                <div class="text-xs text-stone-600">Manual Entry</div>
-              </div>
-              <div class="bg-primary/10 rounded-lg p-3 text-center border border-primary/20">
-                <div class="text-xs text-primary/70 font-label uppercase tracking-wider mb-1">After</div>
-                <div class="text-lg font-black font-headline text-primary">0h/wk</div>
-                <div class="text-xs text-primary/50">Manual Entry</div>
-              </div>
-            </div>
+            <div class="flex items-baseline gap-3 mb-6 pb-4 border-b border-outline-variant/15"><span class="text-sm font-headline text-stone-500">40h/wk</span><span class="material-symbols-outlined text-primary/50 text-base">arrow_forward</span><span class="text-2xl font-black font-headline text-primary">0h/wk</span><span class="text-xs text-stone-500 font-label uppercase tracking-wider ml-auto">Manual Entry</span></div>
             <a onclick="openModal(2)" class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-4 transition-all duration-300 cursor-pointer">
               View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
@@ -541,13 +484,12 @@
        SECTION: PORTFOLIO GALLERY
   ─────────────────────────────────────────── -->
   <section id="portfolio" class="py-24 px-6 relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid-pattern -z-10"></div>
     <div class="max-w-7xl mx-auto">
 
       <div class="text-center mb-16 fade-in">
         <span class="text-sm text-outline tracking-[0.3em] uppercase font-label border border-outline-variant/30 px-5 py-2 rounded-full">Portfolio</span>
         <h2 class="mt-6 text-4xl md:text-5xl font-bold font-headline text-white tracking-tight">
-          Things I've <span class="gradient-text">built.</span>
+          Things I've <span class="text-primary">built.</span>
         </h2>
         <p class="mt-4 text-on-surface-variant max-w-xl mx-auto font-light">
           A selection of automations, integrations, and systems across different tools and industries.
@@ -561,19 +503,20 @@
 
           <!-- Card 1 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="Facebook AI Agent Bot.png"
+            data-img="portfolio/Facebook AI Agent Bot.png"
             data-title="n8n: FB Chat Agent"
-            data-desc="An AI-powered Facebook Messenger agent that handles customer enquiries 24/7. It reads incoming messages, checks a business knowledge base, routes based on intent, and replies via the Messenger API — all without human involvement."
+            data-desc="An AI-powered Facebook Messenger agent that handles customer enquiries 24/7. It reads incoming messages, checks a business knowledge base, routes based on intent, and replies via the Messenger API, all without human involvement."
             data-benefits="Handles unlimited concurrent conversations|Instant replies at any hour|Knowledge base keeps answers accurate and on-brand|Easy to update without rebuilding the flow"
             data-ideal="E-commerce stores, service businesses, or any brand receiving repetitive Messenger enquiries who want to reclaim support hours.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="Facebook AI Agent Bot.png" alt="Facebook AI Agent Bot" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/Facebook AI Agent Bot.png" alt="Facebook AI Agent Bot" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">🤖</span><h3 class="text-white font-bold font-headline text-sm leading-tight">n8n: FB Chat Agent</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">AI-powered Facebook Messenger agent with knowledge base, Groq LLM, and automated customer reply logic.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">AI-powered Facebook Messenger agent with knowledge base, Groq LLM, and automated customer reply logic.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~24 hrs/wk support backlog → 0</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Groq</span>
@@ -584,19 +527,20 @@
 
           <!-- Card 2 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="Invoice Follow-Up System.png"
+            data-img="portfolio/Invoice Follow-Up System.png"
             data-title="Invoice Follow-Up System"
-            data-desc="A fully automated invoice chasing system that runs every morning at 9 AM. It reads overdue invoices from Google Sheets, calculates how many days past due each one is, and fires a tiered email sequence — gentle reminder, firm follow-up, or escalation — without any manual input."
-            data-benefits="Zero manual chasing — it runs itself daily|Tiered messaging matches urgency to overdue age|Webhook marks invoices as paid instantly|Full audit trail in Google Sheets"
+            data-desc="A fully automated invoice chasing system that runs every morning at 9 AM. It reads overdue invoices from Google Sheets, calculates how many days past due each one is, and fires a tiered email sequence, gentle reminder, firm follow-up, or escalation, without any manual input."
+            data-benefits="Zero manual chasing, it runs itself daily|Tiered messaging matches urgency to overdue age|Webhook marks invoices as paid instantly|Full audit trail in Google Sheets"
             data-ideal="Freelancers, agencies, or small businesses tired of manually chasing payments and losing track of what's been sent.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="Invoice Follow-Up System.png" alt="Invoice Follow-Up System" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/Invoice Follow-Up System.png" alt="Invoice Follow-Up System" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">💳</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Invoice Follow-Up System</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">Daily invoice audit that calculates overdue tiers and fires tiered Gmail reminders — with a webhook to mark invoices as paid automatically.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Daily invoice audit that calculates overdue tiers and fires tiered Gmail reminders, with a webhook to mark invoices as paid automatically.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~5 hrs/wk chasing invoices → 0</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Gmail</span>
@@ -607,19 +551,20 @@
 
           <!-- Card 3 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="jobscraper.png"
+            data-img="portfolio/jobscraper.png"
             data-title="Automated Job Scraper Pipeline"
-            data-desc="A Slack-triggered pipeline that finds relevant job listings, loops through each one, tailors a resume using Google Gemini and a structured output parser, then drafts and sends the application via Gmail — all from a single Slack command."
+            data-desc="A Slack-triggered pipeline that finds relevant job listings, loops through each one, tailors a resume using Google Gemini and a structured output parser, then drafts and sends the application via Gmail, all from a single Slack command."
             data-benefits="Apply to multiple jobs in minutes instead of hours|AI-tailored resume for every application|Structured output ensures clean formatting every time|Results posted back to Slack so nothing falls through"
             data-ideal="Job seekers, recruiters, or career coaches who need to apply at volume without sacrificing personalization on each application.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="jobscraper.png" alt="Job Scraper" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/jobscraper.png" alt="Job Scraper" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">🔎</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Automated Job Scraper Pipeline</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">Slack-triggered agent scrapes job boards, loops through listings, generates tailored resumes using Gemini + structured output, and sends application drafts via Gmail.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Slack-triggered agent scrapes job boards, loops through listings, generates tailored resumes using Gemini + structured output, and sends application drafts via Gmail.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~30 min → ~3 min per application</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Slack</span>
@@ -630,19 +575,20 @@
 
           <!-- Card 4 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="Asana to Xero Financial Report.png"
+            data-img="portfolio/Asana to Xero Financial Report.png"
             data-title="Automated Financial Reporting from Project Tasks"
-            data-desc="When a task is completed in Asana, this Make.com workflow triggers a Xero API call to pull financial data, logs it to Google Sheets via an iterator, and exports a formatted CSV — removing the need for any manual reporting."
+            data-desc="When a task is completed in Asana, this Make.com workflow triggers a Xero API call to pull financial data, logs it to Google Sheets via an iterator, and exports a formatted CSV, removing the need for any manual reporting."
             data-benefits="Eliminates manual cross-referencing between Asana and Xero|Real-time financial visibility tied to project progress|CSV export ready for accounting or client delivery|Scales with team size without added admin"
             data-ideal="Project-based businesses, agencies, or consultancies that bill by deliverable and need their finance data to stay in sync with their project management tool.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="Asana to Xero Financial Report.png" alt="Asana to Xero" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/Asana to Xero Financial Report.png" alt="Asana to Xero" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">📊</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Automated Financial Reporting from Project Tasks</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">Asana task completions trigger Xero API calls, log to Google Sheets, and auto-generate a formatted CSV report.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Asana task completions trigger Xero API calls, log to Google Sheets, and auto-generate a formatted CSV report.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~6 hrs/wk reporting → ~5 min/wk</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Make.com</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Asana</span>
@@ -653,19 +599,20 @@
 
           <!-- Card 5 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="Google Forms Lead Capture.png"
+            data-img="portfolio/Google Forms Lead Capture.png"
             data-title="Smart Form-to-Spreadsheet Lead Filter"
-            data-desc="A Zapier workflow that catches every Google Forms submission, capitalises and formats the data, runs it through multi-condition filter logic, and routes qualified leads into the correct Google Sheets tab automatically — with disqualified submissions cleanly stopped."
+            data-desc="A Zapier workflow that catches every Google Forms submission, capitalises and formats the data, runs it through multi-condition filter logic, and routes qualified leads into the correct Google Sheets tab automatically, with disqualified submissions cleanly stopped."
             data-benefits="No more manually sorting form responses|Multi-condition filtering keeps your sheet clean|Separate tabs per lead segment for easy follow-up|Runs instantly on every new submission"
             data-ideal="Marketing teams, coaches, or any business using Google Forms for lead capture who want their data sorted and segmented without lifting a finger.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="Google Forms Lead Capture.png" alt="Google Forms Lead Capture" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/Google Forms Lead Capture.png" alt="Google Forms Lead Capture" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">🎯</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Smart Form-to-Spreadsheet Lead Filter</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">Google Forms responses are formatted, filtered through multi-condition logic, and routed into the correct Sheets tabs automatically.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Google Forms responses are formatted, filtered through multi-condition logic, and routed into the correct Sheets tabs automatically.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~3 hrs/wk sorting leads → instant</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Zapier</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Google Forms</span>
@@ -676,19 +623,20 @@
 
           <!-- Card 6 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="One Telegram Message. Five AI Agents. Infinite Tasks.png"
+            data-img="portfolio/One Telegram Message. Five AI Agents. Infinite Tasks.png"
             data-title="Your Personal AI Chief of Staff on Telegram"
-            data-desc="Send one Telegram message — voice or text — and a parent AI agent intelligently routes your request to the right specialist: Email Agent drafts and sends emails, Calendar Agent manages your schedule, Contact Agent updates your CRM, and a Content Creator Agent produces written output."
-            data-benefits="One interface controls your entire digital life|Voice input transcribed and processed automatically|Each sub-agent is a specialist — not a generalist|Handles parallel tasks without you switching context"
-            data-ideal="Founders, executives, or busy operators who want a single AI assistant that actually executes across email, calendar, and CRM — not just answers questions.">
+            data-desc="Send one Telegram message, voice or text, and a parent AI agent intelligently routes your request to the right specialist: Email Agent drafts and sends emails, Calendar Agent manages your schedule, Contact Agent updates your CRM, and a Content Creator Agent produces written output."
+            data-benefits="One interface controls your entire digital life|Voice input transcribed and processed automatically|Each sub-agent is a specialist, not a generalist|Handles parallel tasks without you switching context"
+            data-ideal="Founders, executives, or busy operators who want a single AI assistant that actually executes across email, calendar, and CRM, not just answers questions.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="One Telegram Message. Five AI Agents. Infinite Tasks.png" alt="Telegram Multi-Agent" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/One Telegram Message. Five AI Agents. Infinite Tasks.png" alt="Telegram Multi-Agent" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">🧠</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Your Personal AI Chief of Staff on Telegram</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">Voice or text triggers a parent AI agent that delegates to sub-agents — Email, Calendar, Contacts, and Content Creator.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Voice or text triggers a parent AI agent that delegates to sub-agents, Email, Calendar, Contacts, and Content Creator.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~10 hrs/wk app-switching → 1 chat thread</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Telegram</span>
@@ -699,19 +647,20 @@
 
           <!-- Card 7 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="Telegram AI Personal Assistant.png"
+            data-img="portfolio/Telegram AI Personal Assistant.png"
             data-title="Multi-Tool AI Agent with Live Data Access"
-            data-desc="A Telegram-based AI agent powered by OpenRouter that has access to real-time web search via Perplexity, live weather data via OpenWeatherMap, and persistent memory via Simple Memory — giving it awareness of context across conversations."
+            data-desc="A Telegram-based AI agent powered by OpenRouter that has access to real-time web search via Perplexity, live weather data via OpenWeatherMap, and persistent memory via Simple Memory, giving it awareness of context across conversations."
             data-benefits="Live data means answers are never outdated|Persistent memory creates a genuine assistant relationship|Web search via Perplexity for research-grade results|Tavily integration for deep topic queries"
-            data-ideal="Researchers, consultants, or power users who need an AI that can look things up, remember context, and give useful answers — not just trained knowledge.">
+            data-ideal="Researchers, consultants, or power users who need an AI that can look things up, remember context, and give useful answers, not just trained knowledge.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="Telegram AI Personal Assistant.png" alt="Telegram AI Personal Assistant" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/Telegram AI Personal Assistant.png" alt="Telegram AI Personal Assistant" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">💬</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Multi-Tool AI Agent with Live Data Access</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">AI agent with real-time web search, weather data, and memory — powered by OpenRouter, Perplexity, Tavily, and OpenWeatherMap.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">AI agent with real-time web search, weather data, and memory, powered by OpenRouter, Perplexity, Tavily, and OpenWeatherMap.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">Manual lookups → live answers in seconds</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">OpenRouter</span>
@@ -722,19 +671,20 @@
 
           <!-- Card 8 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="Lead Generation and Enrichment Pipeline.png"
+            data-img="portfolio/Lead Generation and Enrichment Pipeline.png"
             data-title="Lead Generation &amp; Enrichment Pipeline"
-            data-desc="A full lead generation engine: it scrapes business listings from Google Maps, finds verified contact emails via AnyMail Finder, scrapes each company's website, generates a personalised AI icebreaker, and appends the enriched record to Google Sheets — ready for outreach."
+            data-desc="A full lead generation engine: it scrapes business listings from Google Maps, finds verified contact emails via AnyMail Finder, scrapes each company's website, generates a personalised AI icebreaker, and appends the enriched record to Google Sheets, ready for outreach."
             data-benefits="Turns a Google Maps search into a full enriched lead list|Verified emails reduce bounce rates|AI icebreakers make cold outreach feel warm|Fully hands-off once configured"
             data-ideal="Sales teams, growth agencies, or solo operators who need a consistent pipeline of qualified, enriched leads without paying for expensive data platforms.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="Lead Generation and Enrichment Pipeline.png" alt="Lead Generation Pipeline" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/Lead Generation and Enrichment Pipeline.png" alt="Lead Generation Pipeline" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">⚡</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Lead Generation &amp; Enrichment Pipeline</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">Scrapes Google Maps for leads, finds emails via AnyMail Finder, generates AI icebreakers, and appends enriched rows to Google Sheets.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Scrapes Google Maps for leads, finds emails via AnyMail Finder, generates AI icebreakers, and appends enriched rows to Google Sheets.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~6 hrs/day prospecting → ~15 min/day</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">AnyMail Finder</span>
@@ -745,23 +695,144 @@
 
           <!-- Card 9 -->
           <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            data-img="AI content writing pipeline.png"
+            data-img="portfolio/AI content writing pipeline.png"
             data-title="AI Content Writing Pipeline"
-            data-desc="A schedule-triggered multi-agent pipeline that handles the full content lifecycle: a Planning Agent researches the topic and outlines sections, a Section Writer Agent drafts each part, and an Editor Agent polishes the final piece — then it lands as a Gmail draft, ready to publish."
+            data-desc="A schedule-triggered multi-agent pipeline that handles the full content lifecycle: a Planning Agent researches the topic and outlines sections, a Section Writer Agent drafts each part, and an Editor Agent polishes the final piece, then it lands as a Gmail draft, ready to publish."
             data-benefits="Full article produced with zero human writing time|Multi-agent structure means each role is specialised|Structured output keeps formatting consistent|Schedule-triggered so content never misses a deadline"
             data-ideal="Content marketers, newsletter writers, or agencies who need to produce high-quality written content at scale without burning out their team.">
             <div class="h-44 relative overflow-hidden bg-surface-container">
-              <img src="AI content writing pipeline.png" alt="AI Content Writing Pipeline" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <img src="portfolio/AI content writing pipeline.png" alt="AI Content Writing Pipeline" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
               <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2"><span class="text-sm">✍️</span><h3 class="text-white font-bold font-headline text-sm leading-tight">AI Content Writing Pipeline</h3></div>
-              <p class="text-on-surface-variant text-xs leading-relaxed mb-3">Schedule-triggered multi-agent pipeline — Planning Agent researches, Section Writer drafts, Editor Agent polishes, then delivers a Gmail draft automatically.</p>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Schedule-triggered multi-agent pipeline, Planning Agent researches, Section Writer drafts, Editor Agent polishes, then delivers a Gmail draft automatically.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~3 hrs → ~8 min per article</span></div>
               <div class="flex flex-wrap gap-1">
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">OpenRouter</span>
                 <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Gmail</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10 -->
+          <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            data-img="portfolio/Forum Buyer Intent Monitor.png"
+            data-title="Forum Buyer Intent Monitor"
+            data-desc="Scans community forums for posts signalling buying intent. Claude classifies each post by intent (buyer vs. tire-kicker) and for genuine prospects drafts a personalised outreach reply. Skipped posts are logged so the same noise never gets surfaced twice."
+            data-benefits="AI classification filters out noise before it reaches you|Claude drafts the actual outreach, not just the alert|Reusable across Reddit, niche forums, or any post feed|Logging prevents duplicate replies to the same lead"
+            data-ideal="Founders, agencies, or salespeople watching communities for buying signals who can't read every thread by hand.">
+            <div class="h-44 relative overflow-hidden bg-surface-container">
+              <img src="portfolio/Forum Buyer Intent Monitor.png" alt="Forum Buyer Intent Monitor" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
+              <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2"><span class="text-sm">🎯</span><h3 class="text-white font-bold font-headline text-sm leading-tight">Forum Buyer Intent Monitor</h3></div>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Watches forums for buying-intent posts. Claude classifies each one and drafts personalised outreach for real prospects only.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~10 hrs/wk reading threads → ~10 min/day</span></div>
+              <div class="flex flex-wrap gap-1">
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Claude</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Forum APIs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 11 -->
+          <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            data-img="portfolio/gbq to stripe.png"
+            data-title="BigQuery → Stripe Invoice Pipeline"
+            data-desc="A Make.com pipeline that pulls billable line items from BigQuery (salary, benefits, equipment, shift hours), aggregates them per customer, applies adjustments, and pushes finalised invoices to Stripe with the correct payment method attached. Replaces a multi-spreadsheet manual process with one scheduled run."
+            data-benefits="Aggregates dozens of line items per customer in one pass|Pushes invoices to Stripe ready to send, with payment method set|Eliminates billing errors from manual transcription|One source of truth instead of stitched-together sheets"
+            data-ideal="BPOs, staffing agencies, or any business invoicing customers from itemised BigQuery data who currently rebuild invoices by hand each cycle.">
+            <div class="h-44 relative overflow-hidden bg-surface-container">
+              <img src="portfolio/gbq to stripe.png" alt="BigQuery to Stripe" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
+              <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2"><span class="text-sm">💰</span><h3 class="text-white font-bold font-headline text-sm leading-tight">BigQuery → Stripe Invoice Pipeline</h3></div>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Pulls itemised billing data from BigQuery, aggregates per customer, and pushes finalised invoices straight to Stripe, no manual transcription.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~4 hrs/cycle billing → ~10 min/cycle</span></div>
+              <div class="flex flex-wrap gap-1">
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Make.com</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">BigQuery</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Stripe</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 12 -->
+          <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            data-img="portfolio/linkedind prpospect categorization.png"
+            data-title="LinkedIn Prospect Categorization"
+            data-desc="Feeds prospect company URLs into n8n, scrapes the company website, extracts the meaningful content (no nav junk), and uses Claude to categorise each prospect by industry, size, and ICP fit, outputting a clean structured row ready for CRM import."
+            data-benefits="Categorise hundreds of prospects without opening each site|HTML extraction strips nav/footer noise before classification|Claude returns structured JSON, not free text|Consistent categorisation rules across every record"
+            data-ideal="SDRs, growth teams, or solo operators with a list of company URLs that need to be sorted into ICP segments before outreach.">
+            <div class="h-44 relative overflow-hidden bg-surface-container">
+              <img src="portfolio/linkedind prpospect categorization.png" alt="LinkedIn Prospect Categorization" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
+              <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2"><span class="text-sm">🔗</span><h3 class="text-white font-bold font-headline text-sm leading-tight">LinkedIn Prospect Categorization</h3></div>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Scrapes prospect company sites, strips nav junk, and uses Claude to categorise each one by industry, size, and ICP fit.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~5 min → ~3 sec per prospect</span></div>
+              <div class="flex flex-wrap gap-1">
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Claude</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">LinkedIn</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 13 -->
+          <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            data-img="portfolio/multiplymii review layer.png"
+            data-title="MultiplyMii Invoice Review Layer"
+            data-desc="A Make.com review layer sitting on top of the billing pipeline: pulls payroll and adjustments from BigQuery, runs them through validation, and writes per-client invoice review sheets to Google Drive. One tab per client, ready for the finance team to approve before invoices are sent."
+            data-benefits="Catches billing errors before invoices reach customers|One review sheet per client, no cross-referencing|Aggregator handles dozens of clients in a single run|Direct upgrade from manual cell-by-cell review"
+            data-ideal="Outsourcing companies, BPOs, or staffing firms running monthly billing reviews where small mistakes cost both time and trust.">
+            <div class="h-44 relative overflow-hidden bg-surface-container">
+              <img src="portfolio/multiplymii review layer.png" alt="MultiplyMii Invoice Review Layer" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
+              <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2"><span class="text-sm">📋</span><h3 class="text-white font-bold font-headline text-sm leading-tight">MultiplyMii Invoice Review Layer</h3></div>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">Aggregates payroll and adjustments from BigQuery and writes per-client review sheets to Google Drive. Finance approves before invoices go out.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~8 hrs/cycle review → ~90 min/cycle</span></div>
+              <div class="flex flex-wrap gap-1">
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Make.com</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">BigQuery</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Google Sheets</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 14 -->
+          <div class="pf-card group flex-shrink-0 w-72 bg-surface-container-low rounded-2xl border border-outline-variant/10 overflow-hidden hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            data-img="portfolio/n8nchat.png"
+            data-title="FB Messenger Booking Agent w/ Slack Approval"
+            data-desc="A two-part n8n system for service businesses: an AI agent reads incoming Facebook Messenger messages with knowledge base access and proposes booking times. Each suggestion goes to Slack for human approval. Accepted bookings auto-create a Calendar event and confirm the customer; rejections trigger an alternative-time flow."
+            data-benefits="AI handles enquiry; human stays in the loop on bookings|Knowledge base keeps replies on-brand|Slack approval prevents bad bookings reaching customers|Auto-creates Calendar events and confirmation emails"
+            data-ideal="Service businesses on Messenger (cleaners, salons, contractors) who want AI to handle inbound enquiries but a human to confirm every booking before it locks in.">
+            <div class="h-44 relative overflow-hidden bg-surface-container">
+              <img src="portfolio/n8nchat.png" alt="FB Messenger Booking Agent" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, #1f1f22 100%);"></div>
+              <div class="absolute top-3 right-3 bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-label px-2 py-1 rounded-full flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Live</div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2"><span class="text-sm">📅</span><h3 class="text-white font-bold font-headline text-sm leading-tight">FB Messenger Booking Agent w/ Slack Approval</h3></div>
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-2">AI proposes booking times from Messenger enquiries; a human approves each one in Slack before Calendar events and customer confirmations fire.</p>
+              <div class="flex items-center gap-1.5 mb-3 text-primary"><span class="material-symbols-outlined text-sm">bolt</span><span class="text-xs font-label">~15 hrs/wk booking admin → ~30 min/wk</span></div>
+              <div class="flex flex-wrap gap-1">
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">n8n</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Messenger</span>
+                <span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-xs font-label">Slack</span>
               </div>
             </div>
           </div>
@@ -818,12 +889,48 @@
   </div>
 
   <!-- ───────────────────────────────────────────
+       SECTION: CLIENT TESTIMONIAL VIDEO
+  ─────────────────────────────────────────── -->
+  <section id="testimonial-video" class="py-24 px-6 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12 fade-in">
+        <span class="text-sm text-outline tracking-[0.3em] uppercase font-label">Client Testimonial</span>
+        <h2 class="mt-4 text-3xl md:text-4xl font-bold font-headline text-white tracking-tight">
+          What clients <span class="text-primary">say.</span>
+        </h2>
+      </div>
+
+      <div class="fade-in grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
+        <div class="md:col-span-2 relative rounded-2xl overflow-hidden border border-outline-variant/20 bg-black shadow-2xl flex justify-center max-h-[60vh]">
+          <video class="block max-h-[60vh] w-auto" controls preload="metadata" playsinline>
+            <source src="portfolio/OWC2.mp4" type="video/mp4"/>
+            Your browser does not support embedded video.
+          </video>
+        </div>
+
+        <div class="md:col-span-3">
+          <span class="material-symbols-outlined text-primary text-4xl block mb-2">format_quote</span>
+          <p class="text-on-surface-variant leading-relaxed text-base">
+            A direct video testimonial from the team at <span class="text-white font-semibold">Orillia Window Cleaning</span>, a service business running an automated booking and customer-flow system I built end-to-end.
+          </p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-xl">cleaning_services</span>
+            </div>
+            <div>
+              <div class="text-white font-bold text-sm font-headline">Orillia Window Cleaning</div>
+              <div class="text-stone-500 text-xs font-label">Service Business · Ontario, Canada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────────────────────
        SECTION 5: ABOUT
   ─────────────────────────────────────────── -->
   <section id="about" class="py-24 px-6 relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid-pattern -z-10"></div>
-    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <!-- Left: Avatar / Visual -->
       <div class="flex justify-center fade-in mt-8 md:mt-0">
@@ -839,7 +946,7 @@
                style="z-index: 2; margin: 3px;">
             <img
               src="photo.jpg"
-              alt="Prince Evan — Automation Specialist"
+              alt="Prince Evan, Automation Specialist"
               class="w-full h-full object-cover object-center rounded-full"
             />
           </div>
@@ -850,13 +957,13 @@
       <div class="fade-in">
         <span class="text-xs text-outline tracking-[0.3em] uppercase font-label border border-outline-variant/30 px-4 py-1.5 rounded-full">About</span>
         <h2 class="mt-6 text-4xl md:text-5xl font-bold font-headline text-white tracking-tight leading-tight">
-          The human behind <span class="gradient-text">the machines.</span>
+          The human behind <span class="text-primary">the machines.</span>
         </h2>
         <p class="mt-6 text-on-surface-variant leading-relaxed">
-          I'm Prince — an Automation Specialist based in Cebu, Philippines. I got into automation because I watched smart, capable teams spend their days doing work that computers could handle better. That felt like a waste of human potential.
+          I'm Prince, an Automation Specialist based in Cebu, Philippines. I got into automation because I watched smart, capable teams spend their days doing work that computers could handle better. That felt like a waste of human potential.
         </p>
         <p class="mt-4 text-on-surface-variant leading-relaxed">
-          I specialize in turning operational chaos into clean, autonomous systems — from AI-powered support agents to end-to-end CRM pipeline rebuilds. My edge isn't just technical: I think like a business owner first and an engineer second. That means I never automate for the sake of it. Every system I build is designed to create compounding returns long after I'm done building it.
+          I specialize in turning operational chaos into clean, autonomous systems, from AI-powered support agents to end-to-end CRM pipeline rebuilds. My edge isn't just technical: I think like a business owner first and an engineer second. That means I never automate for the sake of it. Every system I build is designed to create compounding returns long after I'm done building it.
         </p>
 
         <!-- Stack -->
@@ -911,12 +1018,11 @@
        SECTION 4b: TESTIMONIALS
   ─────────────────────────────────────────── -->
   <section id="testimonials" class="py-24 px-6 relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid-pattern -z-10"></div>
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16 fade-in">
         <span class="text-xs text-outline tracking-[0.3em] uppercase font-label border border-outline-variant/30 px-4 py-1.5 rounded-full">Testimonials</span>
-        <h2 class="mt-6 text-4xl md:text-5xl font-bold font-headline text-white tracking-tight">
-          What clients <span class="gradient-text">actually say.</span>
+        <h2 class="mt-6 text-3xl md:text-4xl font-bold font-headline text-white tracking-tight">
+          What clients <span class="text-primary">actually say.</span>
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
@@ -958,7 +1064,7 @@
               <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1">star</span>
             </div>
             <p class="text-on-surface-variant leading-relaxed text-sm mb-8 italic">
-              "Our sales pipeline was a mess — leads were falling through the cracks
+              "Our sales pipeline was a mess, leads were falling through the cracks
               every week. Prince rebuilt the whole thing in Make.com and HubSpot.
               Our close rate tripled in 90 days. I wish we did this two years ago."
             </p>
@@ -1008,8 +1114,8 @@
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12 fade-in">
         <span class="text-xs text-outline tracking-[0.3em] uppercase font-label border border-outline-variant/30 px-4 py-1.5 rounded-full">Connect</span>
-        <h2 class="mt-6 text-4xl md:text-5xl font-bold font-headline text-white tracking-tight">
-          Start a <span class="gradient-text">conversation.</span>
+        <h2 class="mt-6 text-3xl md:text-4xl font-bold font-headline text-white tracking-tight">
+          Start a <span class="text-primary">conversation.</span>
         </h2>
         <p class="mt-4 text-on-surface-variant font-light">
           Tell me about your operations. I'll tell you where the hours are hiding.
@@ -1028,7 +1134,7 @@
       <div class="mt-16 fade-in">
         <div class="text-center mb-10">
           <h3 class="text-2xl font-bold font-headline text-white tracking-tight">
-            Or send a <span class="gradient-text">message.</span>
+            Or send a <span class="text-primary">message.</span>
           </h3>
           <p class="mt-2 text-on-surface-variant font-light text-sm">
             Prefer to write? Fill this out and I'll reply within 24 hours.
@@ -1144,7 +1250,7 @@
           e.target.reset();
         })
         .catch(() => {
-          btn.textContent = 'Failed — try again';
+          btn.textContent = 'Failed, try again';
           btn.disabled = false;
         });
     }
@@ -1155,7 +1261,7 @@
         industry: "SaaS",
         tools: "n8n · OpenAI API · Zendesk · Slack",
         timeline: "3 weeks",
-        role: "Sole automation architect — scoped, built, and deployed end-to-end.",
+        role: "Sole automation architect, scoped, built, and deployed end-to-end.",
         detail: "The client was drowning in tier-1 support tickets that required no human judgment. I built a multi-modal AI agent that reads incoming tickets, classifies intent, drafts a response using GPT-4, and either auto-sends or escalates to a human queue based on confidence score.",
         before: "4h avg response time",
         after: "3min avg response time",
@@ -1166,7 +1272,7 @@
         industry: "E-Commerce",
         tools: "Make.com · HubSpot · Slack · Google Sheets",
         timeline: "4 weeks",
-        role: "Full pipeline architect — audit, redesign, and implementation.",
+        role: "Full pipeline architect, audit, redesign, and implementation.",
         detail: "The client's CRM was a graveyard of unworked leads. I rebuilt their entire pipeline logic: automated lead scoring based on behavior, timed nurture sequences, and deal-stage triggers that notify reps in Slack the moment a lead hits a buying signal.",
         before: "8% close rate",
         after: "27% close rate"
@@ -1176,7 +1282,7 @@
         industry: "FinTech",
         tools: "n8n · REST APIs · PostgreSQL · Airtable",
         timeline: "6 weeks",
-        role: "Middleware architect — designed and built custom API bridges.",
+        role: "Middleware architect, designed and built custom API bridges.",
         detail: "Six legacy systems that had never spoken to each other. I built a real-time middleware layer that syncs data bidirectionally across all platforms, with error handling, retry logic, and a monitoring dashboard so the ops team always knows the pipeline is healthy.",
         before: "40h/week manual entry",
         after: "0h/week manual entry"
@@ -1214,50 +1320,22 @@
     }
 
 
-    const searchPhrases = [
-      "Automate tier-1 support tickets...",
-      "Cut response time from 4 hours to 3 minutes...",
-      "Rebuild my sales pipeline in HubSpot...",
-      "Triple my close rate in 90 days...",
-      "Sync 6 platforms in real time...",
-      "Eliminate 40 hours of manual data entry...",
-      "Build me a business website...",
-      "Design and automate my sales funnel..."
-    ];
-
-    let searchPhraseIndex = 0;
-    let searchCharIndex = 0;
-    let searchIsDeleting = false;
-    const searchEl = document.getElementById('search-bar-text');
-
-    function typeSearch() {
-      if (!searchEl) return;
-
-      const currentPhrase = searchPhrases[searchPhraseIndex];
-
-      if (searchIsDeleting) {
-        searchCharIndex--;
-        searchEl.textContent = currentPhrase.substring(0, searchCharIndex);
-      } else {
-        searchCharIndex++;
-        searchEl.textContent = currentPhrase.substring(0, searchCharIndex);
-      }
-
-      let typingSpeed = searchIsDeleting ? 40 : 80;
-
-      if (!searchIsDeleting && searchCharIndex === currentPhrase.length) {
-        typingSpeed = 2000;
-        searchIsDeleting = true;
-      } else if (searchIsDeleting && searchCharIndex === 0) {
-        searchIsDeleting = false;
-        searchPhraseIndex = (searchPhraseIndex + 1) % searchPhrases.length;
-        typingSpeed = 400;
-      }
-
-      setTimeout(typeSearch, typingSpeed);
-    }
-
-    typeSearch();
+    // Case study filter chips
+    document.querySelectorAll('.case-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.filter;
+        document.querySelectorAll('.case-filter').forEach(b => {
+          b.classList.remove('is-active', 'bg-primary/10', 'border-primary/30', 'text-primary');
+          b.classList.add('border-outline-variant/30', 'text-on-surface-variant');
+        });
+        btn.classList.add('is-active', 'bg-primary/10', 'border-primary/30', 'text-primary');
+        btn.classList.remove('border-outline-variant/30', 'text-on-surface-variant');
+        document.querySelectorAll('.case-card').forEach(card => {
+          const cat = card.dataset.category;
+          card.style.display = (target === 'all' || cat === target) ? '' : 'none';
+        });
+      });
+    });
 
     // Portfolio auto-scroll
     (function() {
